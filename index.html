@@ -341,7 +341,11 @@
             <a href="#action-checklist" class="nav-link">13. Action Checklist</a>
             <a href="#live-scorecard" class="nav-link">14. Live Scorecard</a>
             <a href="#design-shortlist" class="nav-link">15. Design Shortlist</a>
-            <a href="#next-steps" class="nav-link">16. Next Steps</a>
+            <div class="nav-group">Replace agency</div>
+            <a href="#modern-stack" class="nav-link">16. Agency → Modern Tech</a>
+            <a href="#cost-savings" class="nav-link">17. Cost Savings</a>
+            <a href="#build-plan" class="nav-link">18. 90-Day Build</a>
+            <a href="#next-steps" class="nav-link">19. Next Steps</a>
         </nav>
 
         <main id="main-content">
@@ -739,21 +743,195 @@ flowchart TD
                 <div id="platform-designs"></div>
             </section>
 
+            <section id="modern-stack">
+                <h2>16. Agency → Modern Tech</h2>
+                <p class="text-lg">Kill the retainer. Keep the outcomes. Angel Face does not need a $3k–$6k/mo agency to post pretty grids. It needs <strong style="color:var(--slate-light)">owned systems</strong>: reactivation, GBP, reviews, booking, content batching, and a scorecard — run by Jenny + Triple2 with modern tools.</p>
+
+                <div class="client-strip">
+                    <div>
+                        <span class="client-pill">Owned audience first</span>
+                        <span class="client-pill">AI-assisted content</span>
+                        <span class="client-pill">Automations not retainers</span>
+                        <span class="client-pill">Ads only after foundation</span>
+                    </div>
+                    <p class="text-sm text-slate-light mt-2 mb-0">Agency model sells hours and decks. Modern stack sells booked ultrasound consults. Same North Star: Stoneham waitlist.</p>
+                </div>
+
+                <div class="mermaid">
+flowchart LR
+  subgraph Old["Agency_retainer"]
+    A1[Strategy_calls]
+    A2[Social_posts]
+    A3[Generic_SEO]
+    A4[Monthly_PDF]
+  end
+  subgraph New["Modern_stack"]
+    B1[Dormant_SMS_CRM]
+    B2[GBP_plus_reviews]
+    B3[AI_content_batch]
+    B4[Booking_plus_scorecard]
+  end
+  Old -->|replace| New
+  New --> Booked[Ultrasound_consults]
+                </div>
+
+                <h3>What the agency usually does vs what replaces it</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Agency deliverable</th><th>Modern replacement</th><th>Owner</th></tr></thead>
+                        <tbody>
+                            <tr><td>Social calendar + posting</td><td>Batch film 12 posts; CapCut/Descript; Meta Business Suite schedule; AI caption drafts from voice notes</td><td>Jenny (20–40 min/wk) + AI</td></tr>
+                            <tr><td>GBP “management”</td><td>Google Business Profile native posts + review ask automations (Birdeye/Podium/SimpleTexting)</td><td>Jenny + automation</td></tr>
+                            <tr><td>SEO blogs nobody reads</td><td>Service pages that sell the wedge (ultrasound mapping) + schema + local NAP consistency</td><td>Triple2 build once</td></tr>
+                            <tr><td>Lead nurture PDF reports</td><td>This platform scorecard + SMS reactivation sequences + booking webhooks</td><td>Platform + CRM</td></tr>
+                            <tr><td>Ads management fees</td><td>Hold until utilization gate; then Meta/Google with Conversion API, Jenny-approved creatives</td><td>Triple2 light ops</td></tr>
+                            <tr><td>Brand “strategy” retainers</td><td>Design shortlist in §15 + locked voice pillars (safety / regenerative / natural)</td><td>Jenny decides once</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Operating system (what it looks like day-to-day)</h3>
+                <div class="mermaid">
+flowchart TB
+  Capture[Phone_notes_and_visit_moments] --> Batch[Weekly_90min_content_batch]
+  Batch --> Schedule[Meta_Business_Suite]
+  Patients[Dormant_lists] --> SMS[Twilio_or_SimpleTexting]
+  SMS --> Book[Online_booking]
+  Visit[Happy_visit] --> Review[Auto_review_ask]
+  Review --> GBP[Google_maps_rank]
+  Book --> Score[Weekly_scorecard_here]
+  GBP --> Score
+  Schedule --> Score
+  Score --> Decide[Double_down_or_cut]
+                </div>
+
+                <div class="tier-cards">
+                    <div class="tier-card">
+                        <div class="tier-name">Layer 1 · Own</div>
+                        <div class="tier-price" style="font-size:1.1rem">$0–$80/mo</div>
+                        <p class="text-sm">GBP, Meta Suite, this platform, Sheets baseline, Apple Notes scripts</p>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-name">Layer 2 · Automate</div>
+                        <div class="tier-price" style="font-size:1.1rem">$50–$250/mo</div>
+                        <p class="text-sm">SMS reactivation, review asks, calendar reminders, CapCut Pro / ChatGPT</p>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-name">Layer 3 · Amplify</div>
+                        <div class="tier-price" style="font-size:1.1rem">$500–$2k ad spend</div>
+                        <p class="text-sm">Only after Phase 1 utilization gate — warm retargeting, not cold vanity</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cost-savings">
+                <h2>17. Cost Savings</h2>
+                <p>Published med-spa agency fees commonly run <strong style="color:var(--slate-light)">~$1,500–$6,000/mo</strong> for retainers (SEO/social/GBP bundles), often with onboarding fees and ad spend on top. Angel Face baseline model below uses a realistic mid-market full-service alternative vs a modern stack sized for a dual-location RN practice.</p>
+
+                <div class="chart-grid-2">
+                    <div class="chart-box">
+                        <h4>Monthly burn: agency vs modern stack</h4>
+                        <canvas id="agencyCostChart" height="260"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h4>12-month cash kept in the business</h4>
+                        <canvas id="savingsChart" height="260"></canvas>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Line item</th><th>Typical agency path</th><th>Modern tech path</th><th>Monthly delta</th></tr></thead>
+                        <tbody>
+                            <tr><td>Retainer (social + GBP + “SEO” + reports)</td><td>$3,500</td><td>$0</td><td>+$3,500 saved</td></tr>
+                            <tr><td>Onboarding / setup amortized</td><td>$400 (e.g. $4.8k ÷ 12)</td><td>$0 (platform already live)</td><td>+$400 saved</td></tr>
+                            <tr><td>SMS / CRM / review automation</td><td>Often upsold inside retainer</td><td>$120</td><td>−$120</td></tr>
+                            <tr><td>AI + edit tools (ChatGPT, CapCut, Descript)</td><td>$0 (agency owns tools)</td><td>$55</td><td>−$55</td></tr>
+                            <tr><td>Hosting / domain / email</td><td>Buried or extra</td><td>$25</td><td>−$25</td></tr>
+                            <tr><td>Fractional build/ops (Triple2 light)</td><td>$0 (replaced by agency)</td><td>$750</td><td>−$750</td></tr>
+                            <tr><td>Paid ads (optional, same either way)</td><td>$1,500 spend + $800 mgmt</td><td>$1,500 spend + $0–$200 tools</td><td>+$600–$800 when ads run</td></tr>
+                            <tr><td><strong>Steady-state (no ads)</strong></td><td><strong>~$3,900</strong></td><td><strong>~$950</strong></td><td><strong>~$2,950/mo saved</strong></td></tr>
+                            <tr><td><strong>Year 1 (no ads)</strong></td><td><strong>~$46,800</strong></td><td><strong>~$11,400</strong></td><td><strong>~$35,400 kept</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box">
+                    <p class="mb-2" style="color:var(--slate-light)"><strong>What the ~$35k/year buys instead:</strong> ultrasound marketing creatives, Stoneham reactivation SMS volume, website rebuild from the shortlisted design, and cash buffer toward devices/space — not agency decks.</p>
+                    <p class="mb-0 text-sm">If Jenny is currently on a lighter ~$2,000/mo package, savings still land ~$12k–$18k/year after tools + light ops. If on a $5k–$7k package, year-one savings can exceed $50k.</p>
+                </div>
+
+                <div class="mermaid">
+flowchart TD
+  Spend[Agency_3900_mo] --> Leak[Reports_and_generic_posts]
+  Modern[Modern_950_mo] --> Own[Owned_lists_and_GBP]
+  Own --> Book[More_Stoneham_books]
+  Leak --> Hope[Hope_algorithm_likes_us]
+                </div>
+            </section>
+
+            <section id="build-plan">
+                <h2>18. 90-Day Build (replace the agency)</h2>
+                <div class="mermaid">
+gantt
+    title Agency replacement rollout
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %d
+    section Kill_retainer
+    Inventory_agency_deliverables     :a1, 2026-11-20, 5d
+    Cancel_or_pause_agency            :milestone, m0, 2026-11-28, 0d
+    section Stand_up_stack
+    CRM_SMS_review_automations        :b1, 2026-11-21, 14d
+    Content_batch_system              :b2, 2026-11-21, 10d
+    GBP_dual_location_cleanup         :b3, 2026-11-21, 7d
+    section Ship_site
+    Shortlist_design_top3             :c1, 2026-11-22, 10d
+    Build_wedge_homepage              :c2, after c1, 21d
+    section Prove
+    Reactivation_campaign_live        :d1, 2026-12-01, 21d
+    Utilization_gate_check            :milestone, m1, 2026-12-31, 0d
+                </div>
+
+                <ol class="step-list">
+                    <li><strong style="color:var(--slate-light)">Week 1:</strong> List every agency deliverable. Keep only what maps to bookings. Pause retainer.</li>
+                    <li><strong style="color:var(--slate-light)">Week 1–2:</strong> Stand up SMS + review ask. Import dormant lists. Wire booking link UTMs.</li>
+                    <li><strong style="color:var(--slate-light)">Week 2:</strong> One 90-minute content batch → 12 posts scheduled. No daily agency dependency.</li>
+                    <li><strong style="color:var(--slate-light)">Week 2–5:</strong> Finalize design shortlist → ship wedge homepage (ultrasound consult CTA).</li>
+                    <li><strong style="color:var(--slate-light)">Week 3–8:</strong> Run reactivation + GBP posts. Scorecard every Monday in §14.</li>
+                    <li><strong style="color:var(--slate-light)">Day 90:</strong> Compare cost vs bookings. Only then consider paid ads — without agency management bloat.</li>
+                </ol>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Tool</th><th>Job</th><th>Est. cost</th></tr></thead>
+                        <tbody>
+                            <tr><td>This platform (Render)</td><td>Plan, checklist, scorecard, design decisions</td><td>Included / low</td></tr>
+                            <tr><td>Google Business Profile</td><td>Maps visibility, posts, reviews</td><td>Free</td></tr>
+                            <tr><td>Meta Business Suite</td><td>Schedule IG/FB</td><td>Free</td></tr>
+                            <tr><td>SimpleTexting / Twilio / Podium</td><td>Reactivation + review asks</td><td>~$50–$200/mo</td></tr>
+                            <tr><td>ChatGPT / CapCut / Descript</td><td>Captions, edits, batching</td><td>~$30–$60/mo</td></tr>
+                            <tr><td>Calendly / Jane / existing booking</td><td>Consult booking + reminders</td><td>Existing or ~$15–$50/mo</td></tr>
+                            <tr><td>Triple2 light ops</td><td>Site build, automations, monthly tune</td><td>Scoped (~$750/mo model above)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
             <section id="next-steps">
-                <h2>16. Next Steps</h2>
+                <h2>19. Next Steps</h2>
                 <ol class="step-list">
                     <li><strong style="color:var(--slate-light)">Today:</strong> Lock North Star, fill Baseline sheet, set scorecard calendar event.</li>
-                    <li><strong style="color:var(--slate-light)">This week:</strong> Export dormant lists; message first 25 Stoneham patients; clean Stoneham GBP; hold consult/treatment blocks.</li>
+                    <li><strong style="color:var(--slate-light)">This week:</strong> Inventory agency deliverables; pause retainer; stand up SMS + review ask.</li>
                     <li><strong style="color:var(--slate-light)">Design:</strong> Shortlist top 3 comps in section 15 and send ranks to Anthony.</li>
-                    <li><strong style="color:var(--slate-light)">Days 1–14:</strong> Draft 12-post bank; install referral + review asks.</li>
-                    <li><strong style="color:var(--slate-light)">Day 30:</strong> Utilization gate — pass/fail decides brand spend.</li>
+                    <li><strong style="color:var(--slate-light)">Days 1–14:</strong> Draft 12-post bank; install referral + review asks; schedule via Meta Suite.</li>
+                    <li><strong style="color:var(--slate-light)">Day 30:</strong> Utilization gate — pass/fail decides brand spend and any paid ads.</li>
                     <li><strong style="color:var(--slate-light)">Days 30–60:</strong> Publish service ladder + price posture; write hire gate numbers.</li>
                     <li><strong style="color:var(--slate-light)">Days 60–180:</strong> Space/device/wellness only if gates green.</li>
                 </ol>
                 <div class="highlight-box mt-8">
                     <p class="mb-2" style="color:var(--slate-light)"><strong>Prepared by Triple2 Digital</strong> for Angel Face Injections · Jenny Racioppi</p>
-                    <p class="mb-0 text-sm">One password-protected dark platform: plan + checklist + scorecard + 30 designs + competitor analysis.</p>
-                    <p class="mt-4 mb-0"><a class="btn" href="#action-checklist">Jump to checklist</a> <a class="btn ghost" href="#design-shortlist" style="margin-left:0.5rem">Jump to designs</a></p>
+                    <p class="mb-0 text-sm">Dark platform: plan + checklist + scorecard + 30 designs + competitors + agency replacement economics.</p>
+                    <p class="mt-4 mb-0"><a class="btn" href="#modern-stack">Agency → tech</a> <a class="btn ghost" href="#design-shortlist" style="margin-left:0.5rem">Designs</a> <a class="btn ghost" href="#action-checklist" style="margin-left:0.5rem">Checklist</a></p>
                 </div>
             </section>
         </main>
@@ -814,6 +992,63 @@ flowchart TD
                     }
                 }
             });
+
+            const agencyEl = document.getElementById('agencyCostChart');
+            if (agencyEl) {
+                new Chart(agencyEl, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Agency path', 'Modern stack'],
+                        datasets: [{
+                            label: 'Steady-state $/mo (no ads)',
+                            data: [3900, 950],
+                            backgroundColor: ['#e8a0b0', '#64ffda']
+                        }]
+                    },
+                    options: {
+                        ...axis,
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: true, text: 'Keep ~$2,950/mo in the business', color: '#ccd6f6' }
+                        }
+                    }
+                });
+            }
+
+            const savingsEl = document.getElementById('savingsChart');
+            if (savingsEl) {
+                new Chart(savingsEl, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mo 1', 'Mo 3', 'Mo 6', 'Mo 9', 'Mo 12'],
+                        datasets: [
+                            {
+                                label: 'Agency cumulative',
+                                data: [3900, 11700, 23400, 35100, 46800],
+                                borderColor: '#e8a0b0',
+                                backgroundColor: 'rgba(232,160,176,0.15)',
+                                tension: 0.25,
+                                fill: true
+                            },
+                            {
+                                label: 'Modern cumulative',
+                                data: [950, 2850, 5700, 8550, 11400],
+                                borderColor: '#64ffda',
+                                backgroundColor: 'rgba(100,255,218,0.12)',
+                                tension: 0.25,
+                                fill: true
+                            }
+                        ]
+                    },
+                    options: {
+                        ...axis,
+                        plugins: {
+                            legend: { position: 'bottom', labels: { color: '#ccd6f6' } },
+                            title: { display: true, text: '~$35k Year-1 gap (illustrative)', color: '#ccd6f6' }
+                        }
+                    }
+                });
+            }
         }
 
         const sections = document.querySelectorAll('section');

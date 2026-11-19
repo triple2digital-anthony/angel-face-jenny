@@ -2,6 +2,7 @@
   const CHECK_KEY = "angel-face-checklist-v1";
   const SCORE_KEY = "angel-face-scorecard-v1";
   const DESIGN_KEY = "angel-face-design-shortlist-v1";
+  const BRAND_KEY = "angel-face-brand-territories-v1";
 
   const esc = (s) =>
     String(s)
@@ -243,18 +244,134 @@
     render();
   }
 
+  function mountBrands(brandData) {
+    const host = document.getElementById("platform-brands");
+    if (!host) return;
+    let state = loadJSON(BRAND_KEY, { votes: {}, order: [] });
+    const list = brandData.territories || [];
+
+    const render = () => {
+      const short = state.order.filter((id) => state.votes[id] === "shortlist");
+      host.innerHTML = `
+        <div class="btn-row" style="margin-bottom:1rem">
+          <span class="hint">${short.length} shortlisted · votes save in this browser · slot open for Jenny’s names</span>
+          <button type="button" class="btn ghost" id="br-export">Copy shortlist JSON</button>
+          <button type="button" class="btn ghost" id="br-reset">Reset</button>
+        </div>
+        <div class="design-grid">
+          ${list
+            .map((b) => {
+              const v = state.votes[b.id] || "";
+              const file = b.file.startsWith("brands/") ? `designs/${b.file}` : b.file;
+              const swatches = (b.palette || [])
+                .map(
+                  (hex) =>
+                    `<span title="${esc(hex)}" style="display:inline-block;width:14px;height:14px;border-radius:3px;background:${esc(hex)};border:1px solid rgba(255,255,255,.15);margin-right:3px"></span>`
+                )
+                .join("");
+              return `<article class="design-card${v === "shortlist" ? " on" : ""}${v === "kill" ? " killed" : ""}" data-id="${esc(b.id)}">
+              <img src="${esc(file)}" alt="${esc(b.name)} brand board" data-full="${esc(file)}">
+              <div class="dbody">
+                <div class="dname">${esc(b.name)}</div>
+                <div class="hint">${esc(b.tagline)}</div>
+                <div class="why"><strong style="color:var(--slate-light)">${esc(b.territory)}</strong> · ${esc(b.why)}</div>
+                <div class="hint" style="margin-top:0.4rem">${esc(b.typography)} · ${esc(b.mark || "")}</div>
+                <div style="margin-top:0.45rem">${swatches}</div>
+                <div class="btn-row">
+                  <button type="button" class="btn ${v === "shortlist" ? "" : "ghost"}" data-vote="shortlist">Shortlist</button>
+                  <button type="button" class="btn ghost" data-vote="maybe">Maybe</button>
+                  <button type="button" class="btn ghost" data-vote="kill">Kill</button>
+                </div>
+              </div>
+            </article>`;
+            })
+            .join("")}
+        </div>
+        <h4>Shortlist order</h4>
+        <ol class="short-order" id="brand-short-order">
+          ${short
+            .map((id, i) => {
+              const b = list.find((x) => x.id === id);
+              return `<li>#${i + 1} ${esc(b?.name || id)} — ${esc(b?.tagline || "")}</li>`;
+            })
+            .join("") || "<li class='hint'>None yet</li>"}
+        </ol>
+        <div class="lightbox" id="br-lightbox"><img alt="Brand board preview"></div>`;
+
+      host.querySelectorAll("[data-vote]").forEach((btn) => {
+        btn.onclick = () => {
+          const id = btn.closest("[data-id]").dataset.id;
+          const vote = btn.dataset.vote;
+          state.votes[id] = vote;
+          if (vote === "shortlist") {
+            if (!state.order.includes(id)) state.order.push(id);
+          } else {
+            state.order = state.order.filter((x) => x !== id);
+          }
+          saveJSON(BRAND_KEY, state);
+          render();
+        };
+      });
+      host.querySelectorAll(".design-card img").forEach((img) => {
+        img.onclick = () => {
+          const lb = document.getElementById("br-lightbox");
+          lb.querySelector("img").src = img.dataset.full;
+          lb.classList.add("on");
+        };
+      });
+      const lb = document.getElementById("br-lightbox");
+      if (lb) lb.onclick = () => lb.classList.remove("on");
+      const exp = document.getElementById("br-export");
+      if (exp) {
+        exp.onclick = async () => {
+          const payload = {
+            deliverable: "brand identity territories shortlist",
+            shortlist: state.order
+              .filter((id) => state.votes[id] === "shortlist")
+              .map((id, i) => {
+                const b = list.find((x) => x.id === id);
+                return { rank: i + 1, id, name: b?.name, tagline: b?.tagline, territory: b?.territory };
+              }),
+            awaitingJennyNames: true,
+            exportedAt: new Date().toISOString(),
+          };
+          const text = JSON.stringify(payload, null, 2);
+          try {
+            await navigator.clipboard.writeText(text);
+            exp.textContent = "Copied ✓";
+          } catch {
+            prompt("Copy JSON", text);
+          }
+        };
+      }
+      const reset = document.getElementById("br-reset");
+      if (reset) {
+        reset.onclick = () => {
+          if (!confirm("Reset brand territory votes?")) return;
+          state = { votes: {}, order: [] };
+          saveJSON(BRAND_KEY, state);
+          render();
+        };
+      }
+    };
+
+    render();
+  }
+
   window.AngelFacePlatform = {
     async boot() {
       try {
-        const [actions, designs] = await Promise.all([
+        const [actions, designs, brands] = await Promise.all([
           fetchJSON("data/actions.json"),
           fetchJSON("designs/comps.json"),
+          fetchJSON("designs/brands.json"),
         ]);
         mountChecklist(actions);
         mountScorecard(actions);
         mountDesigns(designs);
+        mountBrands(brands);
       } catch (err) {
-        const hosts = ["platform-checklist", "platform-scorecard", "platform-designs"];
+        const hosts = ["platform-checklist", "platform-scorecard", "platform-designs", "platform-brands"];
         hosts.forEach((id) => {
           const el = document.getElementById(id);
           if (el && !el.dataset.ready) {

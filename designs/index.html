@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angel Face — Design Shortlist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1f2e;
+      --muted: #6b7385;
+      --paper: #eef1f5;
+      --card: #fff;
+      --line: #d5dce6;
+      --navy: #1e3a4c;
+      --rose: #9b6b7a;
+      --teal: #2a6f6a;
+      --green: #2f6b4f;
+      --amber: #8a6a1a;
+      --shadow: 0 10px 28px rgba(26,31,46,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Figtree, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(800px 360px at 100% 0%, rgba(155,107,122,.12), transparent 55%),
+        linear-gradient(180deg, #eef1f5, #e4e9ef);
+      min-height: 100vh;
+    }
+    a { color: var(--teal); }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header {
+      background: linear-gradient(155deg, #132833, #1e3a4c 60%, #2a4f5f);
+      color: #fff; padding: 36px 0 28px;
+    }
+    header h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(28px, 4vw, 44px);
+      margin: 8px 0 10px; font-weight: 700;
+    }
+    .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 11px; opacity: .8; font-weight: 700; }
+    .lede { max-width: 720px; opacity: .92; margin: 0 0 16px; }
+    .bar {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      justify-content: space-between; margin-top: 12px;
+    }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 600;
+    }
+    .controls {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(238,241,245,.94); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line); padding: 12px 0;
+    }
+    .controls .row {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      justify-content: space-between;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      border: 1px solid var(--line); background: #fff; color: var(--navy);
+      border-radius: 10px; padding: 8px 12px; font: inherit; font-weight: 700;
+      font-size: 13px; cursor: pointer;
+    }
+    .btn:hover { border-color: var(--navy); }
+    .btn.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .btn.primary { background: var(--teal); color: #fff; border-color: var(--teal); }
+    .btn.rose { background: var(--rose); color: #fff; border-color: var(--rose); }
+    .count { font-weight: 700; color: var(--navy); font-size: 14px; }
+
+    section { padding: 28px 0; }
+    h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 28px; color: var(--navy); margin: 0 0 8px;
+    }
+    .sub { color: var(--muted); margin: 0 0 18px; max-width: 800px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);
+      display: flex; flex-direction: column;
+    }
+    .card.shortlisted { outline: 2px solid var(--teal); }
+    .card.killed { opacity: .45; filter: grayscale(.35); }
+    .thumb {
+      display: block; width: 100%; aspect-ratio: 16/10;
+      object-fit: cover; background: #dde3ea; cursor: zoom-in;
+    }
+    .body { padding: 14px; display: grid; gap: 8px; flex: 1; }
+    .name { font-weight: 700; font-size: 16px; color: var(--navy); }
+    .tag { font-size: 13px; color: var(--muted); }
+    .why { font-size: 13px; color: #3d4558; line-height: 1.45; }
+    .swatches { display: flex; gap: 6px; }
+    .swatch { width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--line); }
+    .actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .actions .btn { flex: 1; min-width: 70px; text-align: center; }
+
+    .comp-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .comp-table th, .comp-table td {
+      text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .comp-table th { color: var(--teal); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+    .comp-table a { word-break: break-all; }
+
+    .lightbox {
+      position: fixed; inset: 0; background: rgba(10,18,28,.88);
+      display: none; align-items: center; justify-content: center;
+      z-index: 50; padding: 24px;
+    }
+    .lightbox.on { display: flex; }
+    .lightbox img {
+      max-width: min(1200px, 96vw); max-height: 88vh;
+      border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+    .lightbox .close {
+      position: absolute; top: 16px; right: 16px;
+      background: #fff; border: 0; border-radius: 999px;
+      width: 40px; height: 40px; font-size: 20px; cursor: pointer; font-weight: 700;
+    }
+
+    .shortlist-panel {
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      padding: 16px; box-shadow: var(--shadow);
+    }
+    .shortlist-empty { color: var(--muted); font-size: 14px; }
+    .shortlist-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .shortlist-list li {
+      display: grid; grid-template-columns: 96px 1fr auto; gap: 12px; align-items: center;
+      border: 1px solid var(--line); border-radius: 12px; padding: 8px;
+    }
+    .shortlist-list img { width: 96px; height: 60px; object-fit: cover; border-radius: 8px; }
+    .rank {
+      display: flex; gap: 4px; align-items: center;
+    }
+    .rank button {
+      width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--line);
+      background: #fff; cursor: pointer; font-weight: 700;
+    }
+    footer { padding: 28px 0 48px; color: var(--muted); font-size: 13px; }
+    .callout {
+      background: #ddeceb; color: #1f5f3f; border-radius: 12px;
+      padding: 12px 14px; font-size: 14px; margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">Angel Face Injections · Design shotgun</div>
+      <h1>10 homepage comps — shortlist board</h1>
+      <p class="lede">Directions researched against the live site and Greater Boston / Stoneham competitors. Shortlist up to 3, rank them, then we’ll refine. Votes save in this browser.</p>
+      <div class="bar">
+        <div class="pills">
+          <span class="pill">Live: angelfaceinjections.com</span>
+          <span class="pill">Stoneham first</span>
+          <span class="pill">Ultrasound / regenerative edge</span>
+        </div>
+        <a class="btn" href="../index.html" style="text-decoration:none">← Workbook</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="wrap row">
+      <div class="filters">
+        <button type="button" class="btn on" data-filter="all">All 10</button>
+        <button type="button" class="btn" data-filter="shortlist">Shortlist</button>
+        <button type="button" class="btn" data-filter="active">Not killed</button>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <span class="count" id="status">0 shortlisted</span>
+        <button type="button" class="btn" id="exportBtn">Copy shortlist JSON</button>
+        <button type="button" class="btn rose" id="resetBtn">Reset votes</button>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="callout"><b>How to use:</b> Open a comp full-screen → Shortlist / Kill / Maybe. Aim for a top 3. Rank in the panel below. Competitors are listed under the grid for context.</div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Your shortlist</h2>
+      <p class="sub">Drag rank with ↑ ↓. Export when ready and tell Anthony which IDs win.</p>
+      <div class="shortlist-panel">
+        <div id="shortlistRoot" class="shortlist-empty">No comps shortlisted yet.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Competitor landscape</h2>
+      <p class="sub">Local market scan used to shape the 10 directions (not visual clones).</p>
+      <div style="overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px 4px;box-shadow:var(--shadow)">
+        <table class="comp-table" id="competitors"></table>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Comps are JPG mockups for direction only — not final UI. Linked from the Angel Face workbook · Triple2 Digital
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button type="button" class="close" id="lbClose" aria-label="Close">×</button>
+    <img id="lbImg" alt="Design comp preview">
+  </div>
+
+  <script>
+    const KEY = "angel-face-design-shortlist-v1";
+    let data = null;
+    let state = { votes: {}, order: [] }; // votes[id] = shortlist | maybe | kill
+    let filter = "all";
+
+    function loadState() {
+      try { state = JSON.parse(localStorage.getItem(KEY) || '{"votes":{},"order":[]}'); }
+      catch { state = { votes: {}, order: [] }; }
+      if (!state.votes) state.votes = {};
+      if (!state.order) state.order = [];
+    }
+    function saveState() {
+      localStorage.setItem(KEY, JSON.stringify(state));
+      updateStatus();
+    }
+    function updateStatus() {
+      const n = Object.values(state.votes).filter((v) => v === "shortlist").length;
+      document.getElementById("status").textContent = `${n} shortlisted · ${Object.keys(state.votes).length} voted`;
+    }
+
+    function setVote(id, vote) {
+      if (vote === "clear") {
+        delete state.votes[id];
+        state.order = state.order.filter((x) => x !== id);
+      } else {
+        state.votes[id] = vote;
+        if (vote === "shortlist") {
+          if (!state.order.includes(id)) state.order.push(id);
+        } else {
+          state.order = state.order.filter((x) => x !== id);
+        }
+      }
+      // Cap shortlist visual warning only — allow more but highlight
+      saveState();
+      render();
+    }
+
+    function moveOrder(id, dir) {
+      const i = state.order.indexOf(id);
+      if (i < 0) return;
+      const j = i + dir;
+      if (j < 0 || j >= state.order.length) return;
+      const tmp = state.order[i];
+      state.order[i] = state.order[j];
+      state.order[j] = tmp;
+      saveState();
+      renderShortlist();
+    }
+
+    function visibleComps() {
+      return data.comps.filter((c) => {
+        const v = state.votes[c.id];
+        if (filter === "shortlist") return v === "shortlist";
+        if (filter === "active") return v !== "kill";
+        return true;
+      });
+    }
+
+    function renderGrid() {
+      const root = document.getElementById("grid");
+      root.innerHTML = visibleComps().map((c) => {
+        const v = state.votes[c.id] || "";
+        const cls = v === "shortlist" ? " shortlisted" : v === "kill" ? " killed" : "";
+        const sw = (c.palette || []).map((p) => `<span class="swatch" style="background:${p}" title="${p}"></span>`).join("");
+        return `<article class="card${cls}" data-id="${c.id}">
+          <img class="thumb" src="${c.file}" alt="${c.name}" data-full="${c.file}">
+          <div class="body">
+            <div class="name">${c.name}</div>
+            <div class="tag">${c.tagline}</div>
+            <div class="swatches">${sw}</div>
+            <div class="why">${c.why}</div>
+            <div class="tag"><b>vs market:</b> ${c.vsMarket}</div>
+            <div class="actions">
+              <button type="button" class="btn ${v==="shortlist"?"on":"primary"}" data-act="shortlist">Shortlist</button>
+              <button type="button" class="btn ${v==="maybe"?"on":""}" data-act="maybe">Maybe</button>
+              <button type="button" class="btn ${v==="kill"?"on":""}" data-act="kill">Kill</button>
+            </div>
+          </div>
+        </article>`;
+      }).join("");
+    }
+
+    function renderShortlist() {
+      const root = document.getElementById("shortlistRoot");
+      const ids = state.order.filter((id) => state.votes[id] === "shortlist");
+      if (!ids.length) {
+        root.className = "shortlist-empty";
+        root.textContent = "No comps shortlisted yet.";
+        return;
+      }
+      root.className = "";
+      const byId = Object.fromEntries(data.comps.map((c) => [c.id, c]));
+      root.innerHTML = `<ol class="shortlist-list">${ids.map((id, idx) => {
+        const c = byId[id];
+        if (!c) return "";
+        return `<li>
+          <img src="${c.file}" alt="">
+          <div>
+            <div class="name">#${idx + 1} · ${c.name}</div>
+            <div class="tag">${c.tagline}</div>
+          </div>
+          <div class="rank">
+            <button type="button" data-move="${id}" data-dir="-1" aria-label="Move up">↑</button>
+            <button type="button" data-move="${id}" data-dir="1" aria-label="Move down">↓</button>
+            <button type="button" class="btn" data-act-remove="${id}">Remove</button>
+          </div>
+        </li>`;
+      }).join("")}</ol>
+      ${ids.length > 3 ? `<p class="tag" style="margin:10px 0 0;color:var(--amber)">Tip: tighten to a top 3 before build.</p>` : ""}`;
+    }
+
+    function renderCompetitors() {
+      const t = document.getElementById("competitors");
+      t.innerHTML = `<thead><tr><th>Competitor</th><th>Geo</th><th>Notes</th><th>URL</th></tr></thead>
+        <tbody>${data.competitors.map((c) => `<tr>
+          <td><b>${c.name}</b></td>
+          <td>${c.geo}</td>
+          <td>${c.notes}</td>
+          <td><a href="${c.url}" target="_blank" rel="noopener">${c.url.replace("https://","").replace("http://","")}</a></td>
+        </tr>`).join("")}</tbody>`;
+    }
+
+    function render() {
+      renderGrid();
+      renderShortlist();
+      updateStatus();
+    }
+
+    document.getElementById("grid").addEventListener("click", (e) => {
+      const img = e.target.closest("img.thumb");
+      if (img) {
+        document.getElementById("lbImg").src = img.dataset.full;
+        document.getElementById("lightbox").classList.add("on");
+        return;
+      }
+      const btn = e.target.closest("[data-act]");
+      if (!btn) return;
+      const card = btn.closest("[data-id]");
+      setVote(card.dataset.id, btn.dataset.act);
+    });
+
+    document.getElementById("shortlistRoot").addEventListener("click", (e) => {
+      const mv = e.target.closest("[data-move]");
+      if (mv) {
+        moveOrder(mv.dataset.move, Number(mv.dataset.dir));
+        return;
+      }
+      const rm = e.target.closest("[data-act-remove]");
+      if (rm) setVote(rm.dataset.actRemove, "clear");
+    });
+
+    document.querySelectorAll("[data-filter]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filter = btn.dataset.filter;
+        document.querySelectorAll("[data-filter]").forEach((b) => b.classList.toggle("on", b === btn));
+        renderGrid();
+      });
+    });
+
+    document.getElementById("lbClose").addEventListener("click", () => document.getElementById("lightbox").classList.remove("on"));
+    document.getElementById("lightbox").addEventListener("click", (e) => {
+      if (e.target.id === "lightbox") e.currentTarget.classList.remove("on");
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") document.getElementById("lightbox").classList.remove("on");
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      if (!confirm("Clear all votes and shortlist?")) return;
+      state = { votes: {}, order: [] };
+      saveState();
+      render();
+    });
+
+    document.getElementById("exportBtn").addEventListener("click", async () => {
+      const ids = state.order.filter((id) => state.votes[id] === "shortlist");
+      const payload = {
+        shortlist: ids.map((id, i) => {
+          const c = data.comps.find((x) => x.id === id);
+          return { rank: i + 1, id, name: c?.name, file: c?.file };
+        }),
+        maybes: data.comps.filter((c) => state.votes[c.id] === "maybe").map((c) => c.id),
+        killed: data.comps.filter((c) => state.votes[c.id] === "kill").map((c) => c.id),
+        exportedAt: new Date().toISOString()
+      };
+      const text = JSON.stringify(payload, null, 2);
+      try {
+        await navigator.clipboard.writeText(text);
+        document.getElementById("status").textContent = "Shortlist copied ✓";
+      } catch {
+        prompt("Copy this shortlist JSON:", text);
+      }
+    });
+
+    (async () => {
+      loadState();
+      const res = await fetch("comps.json", { cache: "no-store" });
+      data = await res.json();
+      renderCompetitors();
+      render();
+    })().catch((err) => {
+      document.getElementById("grid").innerHTML = `<div class="callout">Could not load comps.json. Serve the folder: <code>python3 -m http.server 8765</code><br>${err.message}</div>`;
+    });
+  </script>
+</body>
+</html>

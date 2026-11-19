@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "client": "Angel Face Injections",
+    "site": "https://angelfaceinjections.com/",
+    "generated": "2026-11-18",
+    "brief": "10 homepage design directions for shortlisting. Preserve Angel Face brand equity; lead with ultrasound, regenerative, natural results, Stoneham priority."
+  },
+  "competitors": [
+    {
+      "name": "Precision Nurse Aesthetics",
+      "url": "https://www.precision-nurse.com/",
+      "geo": "Stoneham & Chelmsford",
+      "notes": "Direct Stoneham competitor. Nurse-led, precision positioning, PDGF/microneedling, strong founder page, Book Now primary."
+    },
+    {
+      "name": "Cosmetic Laser Solutions",
+      "url": "https://www.cosmeticlasersolutions.net/",
+      "geo": "Stoneham / North Shore",
+      "notes": "Device-heavy (laser, RF, ultrasound systems). Clinical tech language. Competes on advanced facial rejuvenation suite."
+    },
+    {
+      "name": "Seaport Medspa",
+      "url": "https://www.seaportmedspa.com/",
+      "geo": "Boston (Seaport, North End, Brookline)",
+      "notes": "Multi-location, Top % Galderma/Allergan badges, commission-free providers, PRF/EZGel. Polished medical brand."
+    },
+    {
+      "name": "Newton Medical Aesthetics",
+      "url": "https://www.newtonmedspa.com/locations/wellesley/",
+      "geo": "Newton / Wellesley",
+      "notes": "Physician-led boutique luxury. Natural/refined language. Strong injectables education."
+    },
+    {
+      "name": "Boemy Wellness",
+      "url": "https://www.bwellma.com/",
+      "geo": "Lexington",
+      "notes": "Nurse-led wellness studio hybrid. Injectables + laser + IV. Warm unhurried tone."
+    },
+    {
+      "name": "MD Beauty Boston",
+      "url": "https://www.mdbeautyboston.com/",
+      "geo": "Wellesley",
+      "notes": "Personal NP-founder story site. Boutique, consult-led, artfully done positioning."
+    }
+  ],
+  "comps": [
+    {
+      "id": "comp-01",
+      "file": "comps/comp-01-clinical-mist.jpg",
+      "name": "Clinical Mist",
+      "tagline": "Cool clinical calm with rose accent",
+      "palette": ["#eef1f5", "#1e3a4c", "#9b6b7a"],
+      "why": "Matches ultrasound/safety story without looking like a deal spa. Differentiates from Precision Nurse’s warmer precision brand.",
+      "vsMarket": "More clinical-cool than Seaport’s medical blue; quieter than laser clinics."
+    },
+    {
+      "id": "comp-02",
+      "file": "comps/comp-02-soft-blush-atelier.jpg",
+      "name": "Soft Blush Atelier",
+      "tagline": "Editorial beauty atelier",
+      "palette": ["#f6ecef", "#2a2226", "#b08a94"],
+      "why": "Owns feminine natural-beauty emotion from reviews (lips, first-timers, comfort).",
+      "vsMarket": "Closer to boutique Newton/Wellesley luxury than Stoneham nurse competitors."
+    },
+    {
+      "id": "comp-03",
+      "file": "comps/comp-03-regenerative-lab.jpg",
+      "name": "Regenerative Lab",
+      "tagline": "Ultrasound + regenerative tech edge",
+      "palette": ["#ffffff", "#2a6f6a", "#1a1f2e"],
+      "why": "Leads with the rare MA ultrasound differentiator and regenerative claim.",
+      "vsMarket": "Counters Cosmetic Laser Solutions device story with Jenny’s ultrasound-guided injectables."
+    },
+    {
+      "id": "comp-04",
+      "file": "comps/comp-04-founder-forward.jpg",
+      "name": "Founder Forward",
+      "tagline": "Jenny is the brand",
+      "palette": ["#f3efe8", "#1c1917", "#8b6f5c"],
+      "why": "Reviews repeatedly name Jenny. Trust is personal — mirror Precision Nurse’s founder-forward pattern, but for Jenny.",
+      "vsMarket": "Same category move as Precision Nurse / MD Beauty founder pages."
+    },
+    {
+      "id": "comp-05",
+      "file": "comps/comp-05-dark-luxe.jpg",
+      "name": "Dark Luxe Clinic",
+      "tagline": "Quiet luxury night spa",
+      "palette": ["#12151a", "#c4b49a", "#f2ece4"],
+      "why": "Premium pricing posture vs deal spas; feels exclusive without neon gimmicks.",
+      "vsMarket": "Darker than most Boston med spa sites — stands out in a pastel-heavy SERP."
+    },
+    {
+      "id": "comp-06",
+      "file": "comps/comp-06-gallery-white.jpg",
+      "name": "Gallery White",
+      "tagline": "Museum minimal",
+      "palette": ["#ffffff", "#111111", "#d0d0d0"],
+      "why": "Maximum brand signal, minimum clutter. OCD-friendly clarity for Jenny’s structured taste.",
+      "vsMarket": "Strips away the busy service grids common on competitor homepages."
+    },
+    {
+      "id": "comp-07",
+      "file": "comps/comp-07-booking-first.jpg",
+      "name": "Booking First",
+      "tagline": "Conversion-first utilitarianism",
+      "palette": ["#d9e4dc", "#111111", "#4a5d52"],
+      "why": "Direct response to soft season — calendar fill before brand poetry.",
+      "vsMarket": "Matches Precision Nurse Book Now urgency with regenerative consult CTA."
+    },
+    {
+      "id": "comp-08",
+      "file": "comps/comp-08-education-magazine.jpg",
+      "name": "Education Magazine",
+      "tagline": "Teach then book",
+      "palette": ["#f7f5f1", "#243447", "#6b7c8f"],
+      "why": "Leans into Jenny’s education/safety differentiator and comparison-spiral antidote (substance over hype).",
+      "vsMarket": "More editorial than Seaport’s recognition badges approach."
+    },
+    {
+      "id": "comp-09",
+      "file": "comps/comp-09-wellness-flagship.jpg",
+      "name": "Wellness Flagship",
+      "tagline": "Future holistic home",
+      "palette": ["#ebe6dc", "#5f7a6a", "#2c332e"],
+      "why": "Visualizes Phase 4 vision (facials/lasers/hyperbaric) without abandoning injectables now.",
+      "vsMarket": "Overlaps Boemy wellness hybrid territory — use only if rebrand gate allows umbrella story."
+    },
+    {
+      "id": "comp-10",
+      "file": "comps/comp-10-north-shore-neighbor.jpg",
+      "name": "North Shore Neighbor",
+      "tagline": "Stoneham local trust",
+      "palette": ["#e8eef3", "#1e2a36", "#6a8499"],
+      "why": "Stoneham-first demand engine from the marketing plan. Local, friendly, elevated.",
+      "vsMarket": "Speaks directly against Precision Nurse’s Stoneham presence with neighborhood warmth."
+    }
+  ]
+}

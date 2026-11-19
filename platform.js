@@ -125,6 +125,78 @@
     };
   }
 
+  function lightboxShell(id, alt) {
+    return `<div class="lightbox" id="${esc(id)}" role="dialog" aria-modal="true" aria-label="Preview">
+      <button type="button" class="lb-nav lb-prev" data-lb-prev aria-label="Previous">‹</button>
+      <div class="lb-stage">
+        <img alt="${esc(alt)}">
+        <div class="lb-bar">
+          <span data-lb-caption></span>
+          <span class="lb-keys"><kbd>←</kbd> <kbd>→</kbd> navigate · <kbd>Esc</kbd> close · <span data-lb-counter></span></span>
+        </div>
+      </div>
+      <button type="button" class="lb-nav lb-next" data-lb-next aria-label="Next">›</button>
+      <button type="button" class="lb-close" data-lb-close aria-label="Close">×</button>
+    </div>`;
+  }
+
+  function wireGalleryLightbox(lb, slides) {
+    if (!lb || !slides.length) return { openAt() {} };
+    let index = 0;
+    const img = lb.querySelector("img");
+    const caption = lb.querySelector("[data-lb-caption]");
+    const counter = lb.querySelector("[data-lb-counter]");
+
+    const show = (i) => {
+      index = ((i % slides.length) + slides.length) % slides.length;
+      const s = slides[index];
+      img.src = s.src;
+      img.alt = s.title || "";
+      if (caption) caption.textContent = [s.title, s.subtitle].filter(Boolean).join(" — ");
+      if (counter) counter.textContent = `${index + 1} / ${slides.length}`;
+      lb.classList.add("on");
+      document.body.style.overflow = "hidden";
+    };
+
+    const close = () => {
+      lb.classList.remove("on");
+      document.body.style.overflow = "";
+    };
+
+    const onKey = (e) => {
+      if (!lb.classList.contains("on")) return;
+      if (e.key === "Escape") {
+        e.preventDefault();
+        close();
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        show(index + 1);
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        show(index - 1);
+      }
+    };
+
+    if (lb._afKeyHandler) document.removeEventListener("keydown", lb._afKeyHandler);
+    lb._afKeyHandler = onKey;
+    document.addEventListener("keydown", onKey);
+
+    lb.onclick = (e) => {
+      if (e.target === lb || e.target.closest("[data-lb-close]")) close();
+    };
+    lb.querySelector("[data-lb-prev]")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      show(index - 1);
+    });
+    lb.querySelector("[data-lb-next]")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      show(index + 1);
+    });
+    img.addEventListener("click", (e) => e.stopPropagation());
+
+    return { openAt: show, close };
+  }
+
   function mountDesigns(designData) {
     const host = document.getElementById("platform-designs");
     if (!host) return;
@@ -132,19 +204,24 @@
 
     const render = () => {
       const short = state.order.filter((id) => state.votes[id] === "shortlist");
+      const slides = designData.comps.map((c) => {
+        const file = c.file.startsWith("comps/") ? `designs/${c.file}` : c.file;
+        return { id: c.id, src: file, title: c.name, subtitle: c.tagline };
+      });
+
       host.innerHTML = `
         <div class="btn-row" style="margin-bottom:1rem">
-          <span class="hint">${short.length} shortlisted · votes save in this browser</span>
+          <span class="hint">${short.length} shortlisted · votes save in this browser · click image then ← → Esc</span>
           <button type="button" class="btn ghost" id="des-export">Copy shortlist JSON</button>
           <button type="button" class="btn ghost" id="des-reset">Reset</button>
         </div>
         <div class="design-grid">
           ${designData.comps
-            .map((c) => {
+            .map((c, i) => {
               const v = state.votes[c.id] || "";
-              const file = c.file.startsWith("comps/") ? `designs/${c.file}` : c.file;
-              return `<article class="design-card${v === "shortlist" ? " on" : ""}${v === "kill" ? " killed" : ""}" data-id="${esc(c.id)}">
-              <img src="${esc(file)}" alt="${esc(c.name)}" data-full="${esc(file)}">
+              const file = slides[i].src;
+              return `<article class="design-card${v === "shortlist" ? " on" : ""}${v === "kill" ? " killed" : ""}" data-id="${esc(c.id)}" data-index="${i}">
+              <img src="${esc(file)}" alt="${esc(c.name)}" data-full="${esc(file)}" data-index="${i}">
               <div class="dbody">
                 <div class="dname">${esc(c.name)}</div>
                 <div class="hint">${esc(c.tagline)}</div>
@@ -185,7 +262,7 @@
             </tbody>
           </table>
         </div>
-        <div class="lightbox" id="des-lightbox"><img alt="Comp preview"></div>`;
+        ${lightboxShell("des-lightbox", "Comp preview")}`;
 
       host.querySelectorAll("[data-vote]").forEach((btn) => {
         btn.onclick = () => {
@@ -201,17 +278,10 @@
           render();
         };
       });
+      const gallery = wireGalleryLightbox(document.getElementById("des-lightbox"), slides);
       host.querySelectorAll(".design-card img").forEach((img) => {
-        img.onclick = () => {
-          const lb = document.getElementById("des-lightbox");
-          lb.querySelector("img").src = img.dataset.full;
-          lb.classList.add("on");
-        };
+        img.onclick = () => gallery.openAt(Number(img.dataset.index) || 0);
       });
-      const lb = document.getElementById("des-lightbox");
-      if (lb) {
-        lb.onclick = () => lb.classList.remove("on");
-      }
       const exp = document.getElementById("des-export");
       if (exp) {
         exp.onclick = async () => {
@@ -296,7 +366,12 @@
             })
             .join("") || "<li class='hint'>None yet</li>"}
         </ol>
-        <div class="lightbox" id="br-lightbox"><img alt="Brand board preview"></div>`;
+        ${lightboxShell("br-lightbox", "Brand board preview")}`;
+
+      const brandSlides = list.map((b) => {
+        const file = b.file.startsWith("brands/") ? `designs/${b.file}` : b.file;
+        return { id: b.id, src: file, title: b.name, subtitle: b.tagline };
+      });
 
       host.querySelectorAll("[data-vote]").forEach((btn) => {
         btn.onclick = () => {
@@ -312,15 +387,10 @@
           render();
         };
       });
-      host.querySelectorAll(".design-card img").forEach((img) => {
-        img.onclick = () => {
-          const lb = document.getElementById("br-lightbox");
-          lb.querySelector("img").src = img.dataset.full;
-          lb.classList.add("on");
-        };
+      const gallery = wireGalleryLightbox(document.getElementById("br-lightbox"), brandSlides);
+      host.querySelectorAll(".design-card img").forEach((img, i) => {
+        img.onclick = () => gallery.openAt(i);
       });
-      const lb = document.getElementById("br-lightbox");
-      if (lb) lb.onclick = () => lb.classList.remove("on");
       const exp = document.getElementById("br-export");
       if (exp) {
         exp.onclick = async () => {

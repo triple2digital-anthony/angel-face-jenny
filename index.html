@@ -1,60 +1,874 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Angel Face Action Workbook — Plan</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel Face Injections × Triple2 Digital | Marketing Plan &amp; Action Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a192f;
+            --bg-light: #112240;
+            --slate-light: #ccd6f6;
+            --slate-dark: #8892b0;
+            --brand-primary: #64ffda;
+            --client-accent: #e8a0b0;
+            --client-accent-soft: rgba(232, 160, 176, 0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--slate-dark);
+        }
+        h1, h2, h3, h4, strong { color: var(--slate-light); font-weight: 600; }
+        h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 1rem; }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--bg-light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+        h4 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--brand-primary); }
+        .brand-text { color: var(--brand-primary); }
+        .wrapper { display: flex; }
+        #side-nav {
+            width: 280px;
+            min-height: 100vh;
+            background-color: var(--bg-light);
+            padding: 2rem;
+            position: fixed;
+            border-right: 1px solid #233554;
+            overflow-y: auto;
+        }
+        #main-content {
+            margin-left: 280px;
+            width: calc(100% - 280px);
+            padding: 3rem 4rem;
+        }
+        #main-content > section { margin-top: 2.5rem; }
+        #main-content > section:first-child { margin-top: 0; }
+        .logo { font-size: 1.25rem; font-weight: 700; color: var(--slate-light); letter-spacing: 1px; }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            color: var(--slate-dark);
+            font-weight: 500;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            padding-left: 1.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .nav-link:hover { color: var(--brand-primary); border-left-color: var(--brand-primary); }
+        .nav-link.active { color: var(--slate-light); border-left-color: var(--brand-primary); }
+        .card { background-color: var(--bg-light); border: 1px solid #233554; padding: 1.5rem; border-radius: 8px; }
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #233554; }
+        th { color: var(--brand-primary); font-weight: 600; }
+        td { color: var(--slate-dark); }
+        tbody tr:last-child td { border-bottom: none; }
+        .mermaid { background-color: #ffffff0a; padding: 1rem; border-radius: 8px; margin-top: 1.5rem; }
+        .highlight-box {
+            background-color: #64ffda0a;
+            border: 1px solid var(--brand-primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--brand-primary);
+            color: var(--bg-dark);
+            font-weight: 600;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn:hover { background-color: #52e0c4; transform: translateY(-2px); }
+        #login-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg-dark);
+            display: flex; align-items: center; justify-content: center; z-index: 9999;
+            background-image: radial-gradient(circle at 20% 80%, rgba(232, 160, 176, 0.1) 0%, transparent 45%),
+                              radial-gradient(circle at 80% 20%, rgba(100, 255, 218, 0.08) 0%, transparent 40%);
+        }
+        .login-container {
+            background-color: var(--bg-light);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid #233554;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-width: 420px;
+            width: 90%;
+        }
+        .login-logo { text-align: center; margin-bottom: 2rem; }
+        .login-form { display: flex; flex-direction: column; gap: 1.5rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .form-label { color: var(--slate-light); font-weight: 500; font-size: 0.875rem; }
+        .form-input {
+            background-color: var(--bg-dark);
+            border: 1px solid #233554;
+            color: var(--slate-light);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .form-input:focus { outline: none; border-color: var(--brand-primary); box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1); }
+        .login-btn { background-color: var(--brand-primary); color: var(--bg-dark); padding: 0.875rem; border: none; border-radius: 6px; font-weight: 600; font-size: 1rem; cursor: pointer; }
+        .login-btn:hover { background-color: #52e0c4; transform: translateY(-2px); }
+        .error-message { color: #ff5f56; font-size: 0.875rem; text-align: center; margin-top: 0.5rem; display: none; }
+        .content-hidden { display: none; }
+        .hero-visual {
+            background: linear-gradient(135deg, #112240 0%, #0a192f 50%, #1a365d 100%);
+            border: 1px solid #233554;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 80% 20%, rgba(232, 160, 176, 0.14), transparent 50%);
+            pointer-events: none;
+        }
+        .hero-visual-inner { position: relative; z-index: 1; }
+        .viz-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: stretch; margin-top: 1.25rem; }
+        .viz-tile {
+            flex: 1 1 140px;
+            min-width: 120px;
+            background: rgba(10, 25, 47, 0.6);
+            border: 1px solid #233554;
+            border-radius: 10px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+        .viz-tile:hover { border-color: var(--client-accent); transform: translateY(-2px); }
+        .viz-tile svg { width: 2.5rem; height: 2.5rem; margin: 0 auto 0.75rem; color: var(--client-accent); }
+        .viz-tile .viz-label { font-size: 0.75rem; font-weight: 600; color: var(--slate-light); text-transform: uppercase; letter-spacing: 0.05em; }
+        .viz-tile .viz-desc { font-size: 0.8rem; color: var(--slate-dark); margin-top: 0.35rem; line-height: 1.35; }
+        .inline-flow {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem;
+            margin: 1rem 0; padding: 1rem 1.25rem; background: #0a192f;
+            border-radius: 8px; border: 1px dashed #233554;
+        }
+        .inline-flow .flow-node {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.5rem 0.85rem; background: var(--bg-light);
+            border-radius: 6px; font-size: 0.8rem; color: var(--slate-light); border: 1px solid #233554;
+        }
+        .inline-flow .flow-arrow { color: var(--brand-primary); font-weight: 700; font-size: 1.1rem; }
+        .tier-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .tier-card {
+            border: 1px solid #233554; border-radius: 10px; padding: 1.25rem;
+            background: linear-gradient(180deg, #112240 0%, #0d1b2e 100%); text-align: center;
+        }
+        .tier-card .tier-price { font-size: 1.35rem; font-weight: 700; color: var(--brand-primary); margin: 0.5rem 0; }
+        .tier-card .tier-name { font-size: 0.85rem; font-weight: 600; color: var(--slate-light); text-transform: uppercase; letter-spacing: 0.06em; }
+        .step-list { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+        .step-list li { position: relative; padding-left: 3.25rem; margin-bottom: 1.25rem; min-height: 2.5rem; }
+        .step-list li::before {
+            counter-increment: step; content: counter(step);
+            position: absolute; left: 0; top: 0; width: 2.25rem; height: 2.25rem;
+            border-radius: 50%; background: var(--brand-primary); color: var(--bg-dark);
+            font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; justify-content: center;
+        }
+        .chart-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.25rem; }
+        .chart-box { background: #0a192f; border: 1px solid #233554; border-radius: 8px; padding: 1rem; }
+        .chart-box h4 { margin-top: 0; }
+        .client-wordmark { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid #233554; }
+        .client-name { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.04em; color: var(--slate-light); line-height: 1.2; }
+        .client-tagline { font-size: 0.7rem; font-weight: 600; color: var(--client-accent); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.35rem; }
+        .client-sub { font-size: 0.75rem; color: var(--slate-dark); margin-top: 0.35rem; line-height: 1.4; }
+        .client-strip {
+            border-left: 4px solid var(--client-accent);
+            background: var(--client-accent-soft);
+            padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.5rem 0;
+            border: 1px solid #233554;
+            border-left-width: 4px;
+        }
+        .client-pill {
+            display: inline-block; font-size: 0.65rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            padding: 0.25rem 0.5rem; border-radius: 4px;
+            background: rgba(232, 160, 176, 0.2); color: var(--client-accent);
+            margin-right: 0.35rem; margin-bottom: 0.35rem;
+        }
+        .t2-logo-link { display: inline-block; text-decoration: none; }
+        .t2-logo { display: block; height: 40px; width: auto; margin-left: auto; margin-right: auto; }
+        .t2-logo--nav { height: 38px; width: 100%; max-width: 11rem; margin-left: 0; }
+        .check-mini { list-style: none; padding: 0; margin: 0.75rem 0 0; }
+        .check-mini li {
+            position: relative; padding-left: 1.5rem; margin: 0.45rem 0;
+            font-size: 0.9rem; color: var(--slate-dark);
+        }
+        .check-mini li::before { content: "☐"; position: absolute; left: 0; color: var(--brand-primary); }
+        .nav-group { margin: 1rem 0 0.35rem; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--client-accent); font-weight: 700; padding-left: 1.5rem; }
+        .progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+        .progress-bar { flex: 1; height: 10px; background: #0a192f; border-radius: 999px; overflow: hidden; border: 1px solid #233554; }
+        .progress-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--brand-primary), var(--client-accent)); }
+        .progress-n { font-size: 0.85rem; font-weight: 700; color: var(--slate-light); white-space: nowrap; }
+        .phase-block { margin-bottom: 1.5rem; }
+        .phase-head { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: baseline; justify-content: space-between; }
+        .phase-head h3 { margin: 0; font-size: 1.25rem; }
+        .phase-sum { color: var(--slate-dark); font-size: 0.95rem; margin: 0.5rem 0 0.75rem; }
+        .todo-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.65rem; }
+        .todo-item {
+            display: grid; grid-template-columns: 24px 1fr auto; gap: 0.75rem;
+            background: #0a192f; border: 1px solid #233554; border-radius: 10px; padding: 0.85rem 1rem;
+        }
+        .todo-item.urgent { border-color: rgba(232,160,176,0.55); }
+        .todo-item.done .what, .todo-item.done .how { text-decoration: line-through; opacity: 0.5; }
+        .todo-item input { margin-top: 0.2rem; accent-color: var(--brand-primary); width: 18px; height: 18px; }
+        .todo-item .what { color: var(--slate-light); font-weight: 600; }
+        .todo-item .how { color: var(--slate-dark); font-size: 0.85rem; margin-top: 0.25rem; }
+        .todo-item .when { color: var(--brand-primary); font-size: 0.75rem; font-weight: 700; white-space: nowrap; }
+        .mini-pill { display: inline-flex; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 999px; }
+        .mini-pill.urgent { background: rgba(232,160,176,0.2); color: var(--client-accent); }
+        .mini-pill.info { background: rgba(100,255,218,0.12); color: var(--brand-primary); }
+        .callout-dark { background: rgba(100,255,218,0.08); border: 1px solid #233554; border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 1rem; color: var(--slate-light); }
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; }
+        .metric { background: #0a192f; border: 1px solid #233554; border-radius: 10px; padding: 0.85rem 1rem; }
+        .metric label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-primary); font-weight: 700; }
+        .metric .hint, .hint { font-size: 0.8rem; color: var(--slate-dark); margin: 0.2rem 0 0.45rem; }
+        .metric input {
+            width: 100%; background: var(--bg-light); border: 1px solid #233554; color: var(--slate-light);
+            border-radius: 8px; padding: 0.55rem 0.7rem; font: inherit;
+        }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.85rem; }
+        .btn.ghost { background: transparent; color: var(--slate-light); border: 1px solid #233554; }
+        .btn.ghost:hover { border-color: var(--brand-primary); color: var(--brand-primary); transform: none; }
+        button.btn { cursor: pointer; border: none; font: inherit; }
+        .design-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+        .design-card { background: #0a192f; border: 1px solid #233554; border-radius: 12px; overflow: hidden; }
+        .design-card.on { border-color: var(--brand-primary); box-shadow: 0 0 0 1px var(--brand-primary); }
+        .design-card.killed { opacity: 0.45; filter: grayscale(0.4); }
+        .design-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; cursor: zoom-in; }
+        .design-card .dbody { padding: 0.85rem 1rem 1rem; }
+        .design-card .dname { color: var(--slate-light); font-weight: 700; }
+        .design-card .why { font-size: 0.85rem; color: var(--slate-dark); margin: 0.4rem 0 0.6rem; }
+        .short-order { color: var(--slate-light); padding-left: 1.25rem; }
+        .lightbox {
+            display: none; position: fixed; inset: 0; background: rgba(5,12,24,0.92);
+            z-index: 10000; align-items: center; justify-content: center; padding: 1.5rem;
+        }
+        .lightbox.on { display: flex; }
+        .lightbox img { max-width: min(1100px, 96vw); max-height: 90vh; border-radius: 12px; }
+        @media (max-width: 960px) {
+            #side-nav { display: none; }
+            #main-content { margin-left: 0; width: 100%; padding: 2rem 1.25rem; }
+            h1 { font-size: 1.75rem; }
+            .todo-item { grid-template-columns: 24px 1fr; }
+            .todo-item .when { grid-column: 2; }
+        }
+    </style>
 </head>
-<body data-page="plan">
-  <nav class="top">
-    <div class="wrap navrow">
-      <div class="brand">Angel Face <span>Workbook</span></div>
-      <div class="tabs">
-        <a class="tab" data-page="plan" href="index.html">Plan</a>
-        <a class="tab" data-page="scorecard" href="scorecard.html">Scorecard</a>
-        <a class="tab" data-page="brand" href="brand.html">Brand</a>
-        <a class="tab" data-page="offers" href="offers.html">Offers</a>
-        <a class="tab" data-page="scale" href="scale.html">Scale</a>
-      </div>
+<body>
+    <div id="login-overlay">
+        <div class="login-container">
+            <div class="login-logo">
+                <a href="https://triple2digital.com/" target="_blank" rel="noopener noreferrer" class="t2-logo-link" aria-label="Triple2 Digital">
+                    <svg class="t2-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" role="img"><text x="0" y="30" fill="#ccd6f6" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="700">TRIPLE2</text><text x="0" y="42" fill="#64ffda" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.42em">DIGITAL</text></svg>
+                </a>
+                <p class="text-xs font-semibold uppercase tracking-widest mt-3 mb-0" style="color:#e8a0b0;">Prepared for</p>
+                <p class="text-base font-bold mt-1 mb-0" style="color:#ccd6f6;">Jenny Racioppi</p>
+                <p class="text-xs mt-1" style="color:#8892b0;">Angel Face Injections · Boston &amp; Stoneham, MA</p>
+                <h2 style="font-size: 1.5rem; margin-top: 1rem; border: none; padding: 0;">Secure Document Access</h2>
+            </div>
+            <form class="login-form" id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label class="form-label" for="username">Email</label>
+                    <input type="email" id="username" class="form-input" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-input" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="login-btn">Access Document</button>
+                <div class="error-message" id="error-message">Invalid credentials. Please try again.</div>
+            </form>
+            <div style="text-align:center; margin-top: 2rem; color: var(--slate-dark); font-size: 0.875rem;">
+                <p style="margin-top: 0.25rem;">© 2026 Triple2 Digital · Confidential — Angel Face Injections</p>
+            </div>
+        </div>
     </div>
-  </nav>
 
-  <header class="hero">
-    <div class="wrap">
-      <div class="eyebrow">Jenny Racioppi · Angel Face Injections</div>
-      <h1>Do these, in this order</h1>
-      <p class="lede">Demand recovery first. Brand second. Space and devices last. Your differentiators — ultrasound, regenerative medicine, education, natural results — lead every move. Comparison spirals stay off this page.</p>
-      <div class="stats">
-        <div class="stat"><div class="k">Priority</div><div class="v">Stoneham</div><div class="s">Busier site — fill here first</div></div>
-        <div class="stat"><div class="k">Horizon</div><div class="v">30 days</div><div class="s">Booking stabilize before rebrand</div></div>
-        <div class="stat"><div class="k">Edge</div><div class="v">Ultrasound</div><div class="s">~2 providers in MA who use it</div></div>
-        <div class="stat"><div class="k">Progress</div><div class="v" data-global-progress="compact">—</div><div class="s">Saved in this browser</div></div>
-      </div>
-    </div>
-  </header>
+    <div class="wrapper content-hidden" id="main-wrapper">
+        <nav id="side-nav">
+            <div class="logo">
+                <a href="https://triple2digital.com/" target="_blank" rel="noopener noreferrer" class="t2-logo-link" aria-label="Triple2 Digital">
+                    <svg class="t2-logo t2-logo--nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" role="img"><text x="0" y="30" fill="#ccd6f6" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="700">TRIPLE2</text><text x="0" y="42" fill="#64ffda" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.42em">DIGITAL</text></svg>
+                </a>
+            </div>
+            <p class="text-sm mt-2 mb-1">Angel Face Platform</p>
+            <div class="client-wordmark mb-6">
+                <div class="client-name">ANGEL FACE<br/>INJECTIONS</div>
+                <div class="client-tagline">Safety · Regenerative · Natural</div>
+                <div class="client-sub">Jenny Racioppi, RN · Stoneham priority</div>
+            </div>
+            <div class="nav-group">Plan</div>
+            <a href="#summary" class="nav-link">1. Executive Summary</a>
+            <a href="#diagnosis" class="nav-link">2. Situation &amp; Diagnosis</a>
+            <a href="#positioning" class="nav-link">3. Positioning</a>
+            <a href="#wedge" class="nav-link">4. Wedge Offer</a>
+            <a href="#channels" class="nav-link">5. Channel Strategy</a>
+            <a href="#content" class="nav-link">6. Content Engine</a>
+            <a href="#flywheel" class="nav-link">7. Reactivation &amp; Referrals</a>
+            <a href="#brand" class="nav-link">8. Brand Without Erasure</a>
+            <a href="#ladder" class="nav-link">9. Offer Ladder</a>
+            <a href="#metrics" class="nav-link">10. Metrics Overview</a>
+            <a href="#timeline" class="nav-link">11. 90-Day Timeline</a>
+            <a href="#gates" class="nav-link">12. Decision Gates</a>
+            <div class="nav-group">Work</div>
+            <a href="#action-checklist" class="nav-link">13. Action Checklist</a>
+            <a href="#live-scorecard" class="nav-link">14. Live Scorecard</a>
+            <a href="#design-shortlist" class="nav-link">15. Design Shortlist</a>
+            <a href="#next-steps" class="nav-link">16. Next Steps</a>
+        </nav>
 
-  <section>
-    <div class="wrap">
-      <div class="callout good"><b>North Star:</b> <span data-north-star>Booked-out regenerative aesthetics practice in Stoneham with a waitlist, then a multi-provider wellness flagship.</span></div>
-      <div class="callout warn"><b>Gate rule:</b> No hard rebrand cutover and no big-space / device spend until Phase 1 utilization recovers. Tick items top to bottom.</div>
-      <p class="section-sub" style="margin-top:-8px"><a href="Angel_Face_Marketing_Plan_Proposal.html">Marketing Plan Proposal</a> · <a href="designs/index.html">Design shortlist (10 comps)</a></p>
-      <h2>Master checklist</h2>
-      <p class="section-sub">Same pattern as your structured trip checklists: what to do, exactly how, and when. Ticks save in this browser.</p>
-      <div id="checklist-root"></div>
-    </div>
-  </section>
+        <main id="main-content">
+            <section id="summary">
+                <h1>Marketing Plan: Demand Recovery → Brand → Scale</h1>
+                <p class="text-sm font-medium brand-text mb-2">Angel Face Injections · Triple2 Digital · g-stack strategy frame (HOLD SCOPE on spend, SELECTIVE EXPANSION on differentiators)</p>
 
-  <footer class="site">
-    <div class="wrap">
-      From recording Nov 2026 · <a href="Angel_Face_Marketing_Plan_Proposal.html">Marketing Plan Proposal</a>
-      · Printable: <a href="Jenny_Action_Workbook.md">Jenny_Action_Workbook.md</a>
-      · Serve with <code>python3 -m http.server 8765</code>
+                <div class="client-strip">
+                    <div>
+                        <span class="client-pill">Stoneham first</span>
+                        <span class="client-pill">Ultrasound edge</span>
+                        <span class="client-pill">30-day booking push</span>
+                        <span class="client-pill">No hard rebrand cutover</span>
+                    </div>
+                    <p class="text-sm text-slate-light mt-2 mb-0"><strong>Jenny Racioppi</strong> — RN founder; full-time since Feb 2024; second location Stoneham end-2024 (busier than Boston). Differentiators: ultrasound-guided work (~2 in MA), regenerative focus, PDGF / Alo Clay / Derma Clay early adoption, education, safety, reviews.</p>
+                </div>
+
+                <p class="text-lg">This plan treats the soft season and first YoY dip as a <strong>demand and sequencing problem</strong>, not a competence problem. Marketing wins by filling Stoneham first with a clear ultrasound + regenerative wedge, protecting Angel Face search equity, and unlocking space/devices/staff only after utilization and cash gates clear.</p>
+
+                <div class="hero-visual mt-8">
+                    <div class="hero-visual-inner">
+                        <p class="text-sm font-semibold brand-text uppercase tracking-wider mb-2">At a glance</p>
+                        <p class="text-slate-light text-lg font-medium">From dormant list → booked calendar → brand system → flagship vision</p>
+                        <div class="viz-row">
+                            <div class="viz-tile">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                                <div class="viz-label">Reactivate</div>
+                                <div class="viz-desc">90 / 180 / 365-day patients</div>
+                            </div>
+                            <div class="viz-tile">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+                                <div class="viz-label">Wedge</div>
+                                <div class="viz-desc">Ultrasound mapping + regenerative consult</div>
+                            </div>
+                            <div class="viz-tile">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 18V7.875c0-.621.504-1.125 1.125-1.125H9"/></svg>
+                                <div class="viz-label">Educate</div>
+                                <div class="viz-desc">12-post bank; safety over deals</div>
+                            </div>
+                            <div class="viz-tile">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+                                <div class="viz-label">Scale</div>
+                                <div class="viz-desc">Gates → staff → space → wellness</div>
+                            </div>
+                        </div>
+                        <div class="inline-flow mt-4">
+                            <span class="flow-node">Baseline</span><span class="flow-arrow">→</span>
+                            <span class="flow-node">Stoneham fill</span><span class="flow-arrow">→</span>
+                            <span class="flow-node">Brand protect</span><span class="flow-arrow">→</span>
+                            <span class="flow-node">Offer ladder</span><span class="flow-arrow">→</span>
+                            <span class="flow-node">Flagship vision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong class="brand-text">North Star:</strong>
+                    <span style="color:var(--slate-light)"> Booked-out regenerative aesthetics practice in Stoneham with a waitlist, then a multi-provider wellness flagship.</span>
+                </div>
+
+                <div class="mermaid">
+flowchart LR
+  P0[Phase0_Align] --> P1[Phase1_Fill_Stoneham]
+  P1 --> P2[Phase2_Brand_Protect]
+  P2 --> P3[Phase3_Offer_Ops]
+  P3 --> P4[Phase4_Space_Staff]
+  P1 -.->|utilization gate| P2
+  P3 -.->|cash and util gate| P4
+                </div>
+            </section>
+
+            <section id="diagnosis">
+                <h2>2. Situation &amp; Diagnosis</h2>
+                <p>Source: Jenny founder recording (Nov 2026). Years of doubling/tripling; this year soft since summer; September rebound did not land; November still waiting. Comparison to weaker clinical competitors creates discouragement spirals.</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Signal</th><th>Meaning</th><th>Marketing response</th></tr></thead>
+                        <tbody>
+                            <tr><td>Stoneham busier than Boston</td><td>Demand is geographic</td><td>Stoneham is primary in ads, GBP, reactivation</td></tr>
+                            <tr><td>Ultrasound rarity in MA</td><td>True differentiator</td><td>Lead magnet = consult + ultrasound mapping</td></tr>
+                            <tr><td>Rebrand fear (lose search)</td><td>Rational SEO risk</td><td>Phased brand system; keep Angel Face findable</td></tr>
+                            <tr><td>Wants facials / devices / hyperbaric</td><td>Capital before capacity proof</td><td>Park on roadmap until gates clear</td></tr>
+                            <tr><td>Comparison spiral</td><td>Ego ≠ numbers</td><td>Weekly scorecard only; competitor feeds banned in ritual</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mermaid">
+mindmap
+  root((Angel_Face))
+    Strengths
+      Obsessive_follow_through
+      Ultrasound
+      Regenerative
+      Reviews_education
+      Early_adopter_tech
+    Risks
+      Soft_season_extended
+      Comparison_spiral
+      Rebrand_SEO_loss
+      Premature_space_spend
+    Wedge
+      Stoneham_dormant
+      Ultrasound_consult
+      Referral_ask
+                </div>
+            </section>
+
+            <section id="positioning">
+                <h2>3. Positioning</h2>
+                <p><strong style="color:var(--slate-light)">Category claim:</strong> Safety-first regenerative aesthetics with ultrasound-guided precision and natural results — not a deal spa.</p>
+                <div class="tier-cards">
+                    <div class="tier-card">
+                        <div class="tier-name">Pillar 1</div>
+                        <div class="tier-price">Safety</div>
+                        <p class="text-sm">Education, ultrasound, clinical answers patients can trust</p>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-name">Pillar 2</div>
+                        <div class="tier-price">Regenerative</div>
+                        <p class="text-sm">PDGF and next-wave protocols before they are trendy</p>
+                    </div>
+                    <div class="tier-card">
+                        <div class="tier-name">Pillar 3</div>
+                        <div class="tier-price">Natural</div>
+                        <p class="text-sm">Results that look like the patient — not a trend face</p>
+                    </div>
+                </div>
+                <div class="mermaid">
+flowchart TB
+  subgraph Own["Own the message"]
+    U[Ultrasound_guided]
+    R[Regenerative_medicine]
+    N[Natural_results]
+    E[Education_patience]
+  end
+  subgraph Avoid["Do not compete on"]
+    D[Deepest_discount]
+    C[Competitor_shade]
+    F[Trend_chasing_copy]
+  end
+  Own --> Patient[Ideal_patient_books]
+  Avoid -.->|drains brand| Leak[Soft_calendar]
+                </div>
+            </section>
+
+            <section id="wedge">
+                <h2>4. Wedge Offer (narrowest path)</h2>
+                <p class="text-lg">g-stack forcing question: what is the smallest offer that proves demand this month?</p>
+                <div class="highlight-box">
+                    <strong class="brand-text">Lead magnet:</strong>
+                    <span style="color:var(--slate-light)"> New patient regenerative consult + ultrasound mapping</span>
+                    — same wording on GBP, Instagram bio, and booking link. No panic discounts.
+                </div>
+                <div class="mermaid">
+flowchart LR
+  Aware[Sees_education_post] --> Trust[Believes_safety_edge]
+  Trust --> Book[Books_ultrasound_consult]
+  Book --> Plan[Treatment_plan]
+  Plan --> Treat[Injectables_or_regen]
+  Treat --> Review[Review_plus_referral]
+  Review --> Aware
+                </div>
+                <ul class="step-list mt-6">
+                    <li><strong style="color:var(--slate-light)">Ideal patient:</strong> North-of-Boston / Stoneham corridor; values natural look; anxious about safety; will pay for expertise.</li>
+                    <li><strong style="color:var(--slate-light)">Primary CTA:</strong> Book regenerative consult + ultrasound mapping.</li>
+                    <li><strong style="color:var(--slate-light)">Secondary CTA:</strong> Refer a friend who wants the same standard.</li>
+                </ul>
+            </section>
+
+            <section id="channels">
+                <h2>5. Channel Strategy (Days 1–30)</h2>
+                <p>Rank channels by speed-to-booking, not vanity reach.</p>
+                <div class="chart-grid-2">
+                    <div class="chart-box">
+                        <h4>Effort vs booking leverage (illustrative)</h4>
+                        <canvas id="channelChart" height="240"></canvas>
+                    </div>
+                    <div class="card">
+                        <h4 style="margin-top:0">Priority order</h4>
+                        <ol class="step-list">
+                            <li>Dormant SMS/email (owned list)</li>
+                            <li>Google Business Profile (Stoneham)</li>
+                            <li>In-chair referral ask</li>
+                            <li>Organic education content (IG/FB)</li>
+                            <li>Paid only after utilization gate — retarget warm audiences</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="mermaid">
+flowchart TB
+  subgraph Owned["Owned — do first"]
+    L[Dormant_lists]
+    GBP[GBP_Stoneham]
+    Ref[Referral_script]
+  end
+  subgraph Earned["Earned"]
+    Rev[Google_reviews]
+    WoM[Word_of_mouth]
+  end
+  subgraph Paid["Paid — gated"]
+    Ads[Warm_retargeting]
+  end
+  L --> Bookings
+  GBP --> Bookings
+  Ref --> Bookings
+  Rev --> GBP
+  Bookings --> Ads
+                </div>
+            </section>
+
+            <section id="content">
+                <h2>6. Content Engine</h2>
+                <p>12-post bank locked to differentiators. Schedule ~3/week. Ban competitor mentions and deal-spa language.</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>#</th><th>Theme</th><th>Count</th><th>Job of the post</th></tr></thead>
+                        <tbody>
+                            <tr><td>1–3</td><td>Ultrasound safety</td><td>3</td><td>Prove rare skill; reduce fear</td></tr>
+                            <tr><td>4–5</td><td>Natural results</td><td>2</td><td>Show outcome aesthetic</td></tr>
+                            <tr><td>6–7</td><td>PDGF / regenerative</td><td>2</td><td>Category ownership</td></tr>
+                            <tr><td>8–9</td><td>Alo Clay / Derma Clay</td><td>2</td><td>Early-adopter waitlist</td></tr>
+                            <tr><td>10–11</td><td>Education vs deal spa</td><td>2</td><td>Price posture without shade</td></tr>
+                            <tr><td>12</td><td>Founder / reviews</td><td>1</td><td>Trust + human proof</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mermaid">
+flowchart LR
+  Draft[Draft_12] --> Batch[Batch_film]
+  Batch --> Sched[Schedule_3_per_week]
+  Sched --> CTA[Every_post_CTA_to_consult]
+  CTA --> Track[Track_saves_DMs_books]
+                </div>
+            </section>
+
+            <section id="flywheel">
+                <h2>7. Reactivation &amp; Referral Flywheel</h2>
+                <div class="mermaid">
+flowchart TD
+  Export[Export_90_180_365] --> Segment[Stoneham_first]
+  Segment --> Msg[Personal_ultrasound_regen_note]
+  Msg --> Book[Booked_consult]
+  Book --> Delight[Education_heavy_visit]
+  Delight --> Ask[Referral_ask]
+  Delight --> RevAsk[Review_ask]
+  Ask --> NewLead[Named_referral]
+  RevAsk --> GBP[GBP_social_proof]
+  NewLead --> Msg
+  GBP --> Msg
+                </div>
+                <div class="highlight-box">
+                    <strong class="brand-text">Referral script:</strong>
+                    <span style="color:var(--slate-light)"> “Who do you know who would want this level of safety and natural results?”</span>
+                    Log asked / names / booked every week on the scorecard.
+                </div>
+            </section>
+
+            <section id="brand">
+                <h2>8. Brand Without Erasure</h2>
+                <p>Rebrand is a phased system, not a hard cutover. Sister coined Angel Face — protect search equity for at least 6 months of any rename.</p>
+                <div class="mermaid">
+flowchart TD
+  Start{Phase1_util_recovered_OR_name_blocks_premium?}
+  Start -->|No| Polish[Voice_GBP_content_only]
+  Start -->|Yes| System[Umbrella_brand_line]
+  System --> Keep[Keep_Angel_Face_legal_DBA]
+  Keep --> SEO[SEO_protect_checklist]
+  SEO --> Public[Public_rename_with_formerly_line]
+  Polish --> Wait[Revisit_gate_in_30_days]
+                </div>
+                <ul class="check-mini">
+                    <li>Legal/DBA remains searchable as Angel Face Injections</li>
+                    <li>301s / redirects if URL changes</li>
+                    <li>GBP name strategy does not wipe Angel Face overnight</li>
+                    <li>Instagram handle plan documented</li>
+                    <li>“Formerly Angel Face” for 6 months on site/bio</li>
+                    <li>Weekly Google test for “Angel Face Injections”</li>
+                </ul>
+            </section>
+
+            <section id="ladder">
+                <h2>9. Offer Ladder</h2>
+                <div class="mermaid">
+flowchart TB
+  L1[1_Injectables_core] --> L2[2_Ultrasound_guided]
+  L2 --> L3[3_Regenerative_PDGF]
+  L3 --> L4[4_Early_adopter_Alo_Derma]
+  L4 --> L5[5_Facials_lasers_later]
+  L5 --> L6[6_Wellness_hyperbaric_vision]
+                </div>
+                <p class="mt-4">Price for education and ultrasound expertise — never to match weaker deal spas. Facials, lasers, hyperbaric stay on the Phase 4 roadmap until capital gates pass.</p>
+            </section>
+
+            <section id="metrics">
+                <h2>10. Metrics &amp; Scorecard</h2>
+                <p>Same day/time weekly. Numbers only. Comparison spiral = open scorecard, close competitor feeds.</p>
+                <div class="chart-grid-2">
+                    <div class="chart-box">
+                        <h4>Weekly focus mix (target attention)</h4>
+                        <canvas id="focusChart" height="240"></canvas>
+                    </div>
+                    <div class="card">
+                        <h4 style="margin-top:0">Track every week</h4>
+                        <ul class="check-mini">
+                            <li>Bookings + revenue</li>
+                            <li>Stoneham utilization %</li>
+                            <li>New vs returning</li>
+                            <li>Dormant sent → booked</li>
+                            <li>Referrals asked / received</li>
+                            <li>Review asks / new reviews</li>
+                            <li>No-show rate + inbound leads</li>
+                            <li>Comparison spiral? Y/N</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mermaid">
+flowchart LR
+  Ritual[Weekly_scorecard] --> Decision[Keep_or_change_tactics]
+  Decision --> Channels[Double_down_on_what_books]
+  Channels --> Ritual
+                </div>
+            </section>
+
+            <section id="timeline">
+                <h2>11. 90-Day Timeline</h2>
+                <div class="mermaid">
+gantt
+    title Angel Face marketing roadmap
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %d
+    section Align
+    North_Star_and_baseline           :a1, 2026-11-19, 3d
+    Scorecard_ritual                  :a2, after a1, 2d
+    section Stabilize
+    Dormant_lists_and_reactivation    :b1, 2026-11-20, 14d
+    GBP_and_content_bank              :b2, 2026-11-20, 21d
+    Utilization_gate_check            :milestone, m1, 2026-12-19, 0d
+    section Brand
+    Voice_and_SEO_protect_plan        :c1, 2026-12-05, 20d
+    Rebrand_gate_decision             :milestone, m2, 2027-01-03, 0d
+    section Offer_Scale
+    Service_ladder_and_SOP            :d1, 2026-12-20, 25d
+    Hire_and_space_gates_written      :d2, 2027-01-05, 20d
+                </div>
+            </section>
+
+            <section id="gates">
+                <h2>12. Decision Gates</h2>
+                <div class="mermaid">
+flowchart TD
+  G1{Phase1_util_gate}
+  G1 -->|Fail| KeepPush[Keep_reactivation_content]
+  G1 -->|Pass| BrandOK[Allow_brand_system_work]
+  G2{Cash_and_util_for_hire}
+  BrandOK --> G2
+  G2 -->|Fail| OpsOnly[Price_card_SOP_only]
+  G2 -->|Pass| Hire1[First_hire]
+  G3{Space_device_gate}
+  Hire1 --> G3
+  OpsOnly --> G3
+  G3 -->|Fail| Park[Park_hyperbaric_facials]
+  G3 -->|Pass| Build[Space_devices_wellness]
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th>Gate</th><th>Example threshold</th><th>If fail</th></tr></thead>
+                        <tbody>
+                            <tr><td>Phase 1 utilization</td><td>4 weeks ≥70% Stoneham OR +20% bookings vs Nov baseline</td><td>No public rename; keep filling</td></tr>
+                            <tr><td>First hire</td><td>X weeks at target + Y cash (payroll buffer)</td><td>Jenny stays solo; SOPs only</td></tr>
+                            <tr><td>Space / devices</td><td>Months above capacity + deposit/buildout/3-mo burn</td><td>Lease/research only; no cash buy</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="action-checklist">
+                <h2>13. Action Checklist</h2>
+                <p>Do these in order. Ticks save in this browser. Same what / how / when system as the workbook — now inside the dark platform.</p>
+                <div id="platform-checklist" class="card"></div>
+            </section>
+
+            <section id="live-scorecard">
+                <h2>14. Live Scorecard</h2>
+                <p>Weekly numbers only. Comparison spiral stays off this page.</p>
+                <div id="platform-scorecard" class="card"></div>
+            </section>
+
+            <section id="design-shortlist">
+                <h2>15. Design Shortlist (30 comps)</h2>
+                <p>Homepage directions researched against the live site and 26 competitors. Shortlist, maybe, or kill. Export when you have a top 3.</p>
+                <div class="highlight-box">
+                    <p class="mb-2" style="color:var(--slate-light)"><strong>Market suggestions (from competitor scan):</strong></p>
+                    <ul class="check-mini" id="suggestion-list" style="margin:0"></ul>
+                </div>
+                <div id="platform-designs"></div>
+            </section>
+
+            <section id="next-steps">
+                <h2>16. Next Steps</h2>
+                <ol class="step-list">
+                    <li><strong style="color:var(--slate-light)">Today:</strong> Lock North Star, fill Baseline sheet, set scorecard calendar event.</li>
+                    <li><strong style="color:var(--slate-light)">This week:</strong> Export dormant lists; message first 25 Stoneham patients; clean Stoneham GBP; hold consult/treatment blocks.</li>
+                    <li><strong style="color:var(--slate-light)">Design:</strong> Shortlist top 3 comps in section 15 and send ranks to Anthony.</li>
+                    <li><strong style="color:var(--slate-light)">Days 1–14:</strong> Draft 12-post bank; install referral + review asks.</li>
+                    <li><strong style="color:var(--slate-light)">Day 30:</strong> Utilization gate — pass/fail decides brand spend.</li>
+                    <li><strong style="color:var(--slate-light)">Days 30–60:</strong> Publish service ladder + price posture; write hire gate numbers.</li>
+                    <li><strong style="color:var(--slate-light)">Days 60–180:</strong> Space/device/wellness only if gates green.</li>
+                </ol>
+                <div class="highlight-box mt-8">
+                    <p class="mb-2" style="color:var(--slate-light)"><strong>Prepared by Triple2 Digital</strong> for Angel Face Injections · Jenny Racioppi</p>
+                    <p class="mb-0 text-sm">One password-protected dark platform: plan + checklist + scorecard + 30 designs + competitor analysis.</p>
+                    <p class="mt-4 mb-0"><a class="btn" href="#action-checklist">Jump to checklist</a> <a class="btn ghost" href="#design-shortlist" style="margin-left:0.5rem">Jump to designs</a></p>
+                </div>
+            </section>
+        </main>
     </div>
-  </footer>
-  <script src="app.js"></script>
+
+    <script src="platform.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: false, theme: 'dark', gantt: { axisFormat: '%b %d' } });
+
+        function initializeMermaid() {
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        }
+
+        function initializeCharts() {
+            const axis = {
+                responsive: true,
+                plugins: { legend: { labels: { color: '#ccd6f6' } } },
+                scales: {
+                    y: { beginAtZero: true, ticks: { color: '#8892b0' }, grid: { color: 'rgba(204,214,246,0.1)' } },
+                    x: { ticks: { color: '#8892b0' }, grid: { display: false } }
+                }
+            };
+
+            new Chart(document.getElementById('channelChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Dormant SMS', 'GBP', 'Referral', 'Organic IG', 'Cold paid'],
+                    datasets: [{
+                        label: 'Booking leverage (1–10)',
+                        data: [9, 8, 8, 6, 3],
+                        backgroundColor: ['#64ffda', '#e8a0b0', '#64ffda', '#8892b0', '#233554']
+                    }]
+                },
+                options: {
+                    ...axis,
+                    plugins: {
+                        ...axis.plugins,
+                        title: { display: true, text: 'Where to put hours first', color: '#ccd6f6' },
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('focusChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Reactivation', 'GBP/Reviews', 'Content', 'Referrals', 'Brand polish'],
+                    datasets: [{
+                        data: [35, 20, 20, 15, 10],
+                        backgroundColor: ['#64ffda', '#e8a0b0', '#38bdf8', '#a78bfa', '#233554']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#ccd6f6' } },
+                        title: { display: true, text: 'Days 1–30 attention budget', color: '#ccd6f6' }
+                    }
+                }
+            });
+        }
+
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                if (pageYOffset >= section.offsetTop - 60) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) link.classList.add('active');
+            });
+        });
+
+        const VALID_USERNAME = 'jenny@angelfaceinjections.com';
+        const VALID_PASSWORD = 'Af9#mK2$pQ7@nR4!wL8&xT3^hJ5%bN6';
+
+        function showApp() {
+            document.getElementById('login-overlay').style.display = 'none';
+            document.getElementById('main-wrapper').classList.remove('content-hidden');
+            setTimeout(initializeMermaid, 100);
+            setTimeout(initializeCharts, 150);
+            if (window.AngelFacePlatform) window.AngelFacePlatform.boot();
+            fetch('designs/comps.json').then(r => r.json()).then(d => {
+                const ul = document.getElementById('suggestion-list');
+                if (ul && d.meta && d.meta.suggestions) {
+                    ul.innerHTML = d.meta.suggestions.map(s => `<li style="list-style:none;padding-left:0;margin:0.35rem 0">→ ${s}</li>`).join('');
+                }
+            }).catch(() => {});
+        }
+
+        if (sessionStorage.getItem('af_authenticated') === 'true') {
+            showApp();
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            if (username.toLowerCase() === VALID_USERNAME.toLowerCase() && password === VALID_PASSWORD) {
+                sessionStorage.setItem('af_authenticated', 'true');
+                showApp();
+            } else {
+                errorMessage.style.display = 'block';
+                document.getElementById('password').value = '';
+                setTimeout(() => { errorMessage.style.display = 'none'; }, 3000);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const u = document.getElementById('username');
+            if (u) u.focus();
+        });
+    </script>
 </body>
 </html>

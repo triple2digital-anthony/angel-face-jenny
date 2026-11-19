@@ -2,137 +2,235 @@
   "meta": {
     "client": "Angel Face Injections",
     "site": "https://angelfaceinjections.com/",
-    "generated": "2026-11-18",
-    "brief": "10 homepage design directions for shortlisting. Preserve Angel Face brand equity; lead with ultrasound, regenerative, natural results, Stoneham priority."
+    "generated": "2026-11-19",
+    "brief": "30 homepage design directions + competitor landscape. Preserve Angel Face equity; lead with ultrasound, regenerative, natural results, Stoneham priority.",
+    "suggestions": [
+      "Lead homepage with ultrasound mapping + regenerative consult (not a discount banner).",
+      "Put Jenny front-and-center with RN credentials and training (Switzerland / NYC / ultrasound).",
+      "Make Stoneham the primary CTA location; Boston secondary.",
+      "Add a first-timer calm path — reviews already prove this is a strength.",
+      "Mobile sticky Book + text-Jenny concierge (patients already text).",
+      "Service mega-menu: Neuromodulators / Fillers / Regenerative / Early adopter.",
+      "Do not hard-cut rebrand; keep Angel Face searchable for 6+ months.",
+      "Steal structure from Precision Nurse (founder + Book Now) but differentiate on ultrasound rarity.",
+      "Avoid deal-spa promo grids used by chain clinics (LaserAway / VIO).",
+      "Publish education content that beats Seaport recognition-badge noise with substance."
+    ]
   },
   "competitors": [
     {
       "name": "Precision Nurse Aesthetics",
       "url": "https://www.precision-nurse.com/",
       "geo": "Stoneham & Chelmsford",
-      "notes": "Direct Stoneham competitor. Nurse-led, precision positioning, PDGF/microneedling, strong founder page, Book Now primary."
+      "siteTake": "Clean founder-forward site, strong Book Now, PDGF called out, dual locations clear.",
+      "suggestion": "Mirror their clarity and founder page — then beat them with ultrasound-guided story Angel Face owns."
     },
     {
       "name": "Cosmetic Laser Solutions",
       "url": "https://www.cosmeticlasersolutions.net/",
-      "geo": "Stoneham / North Shore",
-      "notes": "Device-heavy (laser, RF, ultrasound systems). Clinical tech language. Competes on advanced facial rejuvenation suite."
+      "geo": "Stoneham",
+      "siteTake": "Device-heavy clinical language; lasers/RF/ultrasound systems as hero.",
+      "suggestion": "Do not compete on device inventory. Compete on injector skill + facial ultrasound for injectables safety."
     },
     {
       "name": "Seaport Medspa",
       "url": "https://www.seaportmedspa.com/",
-      "geo": "Boston (Seaport, North End, Brookline)",
-      "notes": "Multi-location, Top % Galderma/Allergan badges, commission-free providers, PRF/EZGel. Polished medical brand."
+      "geo": "Boston multi-location",
+      "siteTake": "Polished multi-location brand, Top % vendor badges, commission-free messaging.",
+      "suggestion": "You cannot out-badge them. Out-personalize them: Jenny-named reviews + education depth."
     },
     {
       "name": "Newton Medical Aesthetics",
       "url": "https://www.newtonmedspa.com/locations/wellesley/",
       "geo": "Newton / Wellesley",
-      "notes": "Physician-led boutique luxury. Natural/refined language. Strong injectables education."
+      "siteTake": "Physician-led boutique luxury; refined natural-beauty copy.",
+      "suggestion": "Borrow their elevated tone for premium pricing posture without pretending MD-owned."
     },
     {
       "name": "Boemy Wellness",
       "url": "https://www.bwellma.com/",
       "geo": "Lexington",
-      "notes": "Nurse-led wellness studio hybrid. Injectables + laser + IV. Warm unhurried tone."
+      "siteTake": "Nurse-led wellness studio hybrid; warm unhurried brand.",
+      "suggestion": "Use as Phase 4 vision reference — not this quarter’s homepage promise."
     },
     {
       "name": "MD Beauty Boston",
       "url": "https://www.mdbeautyboston.com/",
       "geo": "Wellesley",
-      "notes": "Personal NP-founder story site. Boutique, consult-led, artfully done positioning."
+      "siteTake": "Personal NP story site; consult-led boutique.",
+      "suggestion": "Story length works when authentic — keep Jenny’s story tight and proof-heavy."
+    },
+    {
+      "name": "Essentially Bare",
+      "url": "https://essentiallybare.com/",
+      "geo": "Boston & Cambridge",
+      "siteTake": "Laser + injectables multi-service, dual-city convenience focus.",
+      "suggestion": "Differentiate as specialist injector studio, not full laser mall."
+    },
+    {
+      "name": "Bella Aesthetics",
+      "url": "https://bellaaestheticsma.com/",
+      "geo": "Cambridge",
+      "siteTake": "Luxury-medical blend; neurotoxins/fillers with natural-radiance language.",
+      "suggestion": "Match their calm luxury photography quality; win on ultrasound education."
+    },
+    {
+      "name": "Aida Medical Aesthetics",
+      "url": "https://aidamedicalaesthetics.com/",
+      "geo": "Brookline",
+      "siteTake": "New-age luxury NP brand; witty voice; broad injectable menu.",
+      "suggestion": "Voice can be warm without gimmicks — keep Angel Face clinical-warm, not quirky."
+    },
+    {
+      "name": "LaserAway Somerville",
+      "url": "https://www.laseraway.com/locations/ma/somerville/dermal-fillers/",
+      "geo": "Somerville / chain",
+      "siteTake": "National chain template; free consults; promo/SEO machine.",
+      "suggestion": "Never race their pricing. Position as anti-chain: one expert, mapped face, natural results."
+    },
+    {
+      "name": "Enhance Aesthetics",
+      "url": "https://enhancemedi.com/",
+      "geo": "Melrose",
+      "siteTake": "Boutique NP injector; inclusion/authenticity story; simple services list.",
+      "suggestion": "North Shore neighbor set — beat on regenerative + ultrasound proof points."
+    },
+    {
+      "name": "PBinJect Medical Spa",
+      "url": "https://www.pbinjectmedspa.com/",
+      "geo": "Wakefield",
+      "siteTake": "RN injector bio-forward; safety + natural results; education emphasis.",
+      "suggestion": "Same category as Jenny — website must feel more premium and more specific (ultrasound)."
+    },
+    {
+      "name": "Infinite Beauty Med Spa",
+      "url": "https://infinitebeautymedspa.com/",
+      "geo": "Wakefield / Reading area",
+      "siteTake": "RN-led; PRP/PRF/threads/peptides sprawling menu.",
+      "suggestion": "Avoid menu sprawl on homepage. Ladder regenerative carefully so focus stays clear."
+    },
+    {
+      "name": "MD Esthetics Boston",
+      "url": "https://mdestheticsus.com/locations/boston/",
+      "geo": "Newbury St",
+      "siteTake": "Multi-location polished; evidence-based + Book Now everywhere.",
+      "suggestion": "Adopt persistent Book CTA pattern; keep boutique single-expert personality."
+    },
+    {
+      "name": "SkinMD",
+      "url": "https://skinmd1.com/",
+      "geo": "10 Greater Boston locations",
+      "siteTake": "Scale brand; peptides/wellness expansion; master injector framing.",
+      "suggestion": "Scale messaging is their game. Yours is depth with Jenny + Stoneham convenience."
+    },
+    {
+      "name": "SkinHealth Centers",
+      "url": "https://www.skinhealthcenters.com/boston-ma/",
+      "geo": "Newbury St",
+      "siteTake": "Legacy Newbury flagship; physician aesthetician team; injectable catalog.",
+      "suggestion": "Catalog pages are fine later — homepage should sell the wedge offer first."
+    },
+    {
+      "name": "Skin Laundry",
+      "url": "https://www.skinlaundry.com/locations/newbury-street",
+      "geo": "Newbury / South End",
+      "siteTake": "Productized laser facial brand; retail UX; membership energy.",
+      "suggestion": "Learn membership/productization later; do not copy laser-first identity."
+    },
+    {
+      "name": "Medical Aesthetics on Tremont",
+      "url": "https://www.medicalaestheticsontremont.com/",
+      "geo": "South End",
+      "siteTake": "High-rated local clinic; services-forward booking.",
+      "suggestion": "Strong local SEO reminder — keep GBP + service pages sharp for Stoneham."
+    },
+    {
+      "name": "Icon MD Medical Spa",
+      "url": "https://www.iconmd.com/massachusetts/",
+      "geo": "Newbury St",
+      "siteTake": "Laser + spa hybrid; high review volume; multi-service.",
+      "suggestion": "Volume brands win on ads. Angel Face wins on named expertise and safety theater (ultrasound)."
+    },
+    {
+      "name": "SIMMETRIA MedSpa",
+      "url": "https://simmetria.us/",
+      "geo": "Boston",
+      "siteTake": "Booking/shopping integrated; wellness + aesthetics.",
+      "suggestion": "Integrate booking tightly; shopping secondary to consult CTA."
+    },
+    {
+      "name": "Self CenteRx",
+      "url": "https://www.selfcenterx.com/",
+      "geo": "Boston area",
+      "siteTake": "Wellness/medspa hybrid branding; self-care framing.",
+      "suggestion": "Self-care language is overused — prefer safety + regenerative specificity."
+    },
+    {
+      "name": "Boston Beautox",
+      "url": "https://www.bostonbeautox.com/",
+      "geo": "Boston",
+      "siteTake": "Injectables-forward local brand; tox-centric naming.",
+      "suggestion": "Name clarity helps SEO — protect Angel Face search while adding regenerative keywords."
+    },
+    {
+      "name": "DeluxeBar Medical Aesthetics",
+      "url": "https://www.deluxebar.com/",
+      "geo": "Boston",
+      "siteTake": "Bar-aesthetic playful luxury; social-first vibe.",
+      "suggestion": "Playful can undercut clinical trust — keep Angel Face calm and expert."
+    },
+    {
+      "name": "ALDA Aesthetics",
+      "url": "https://www.aldaaesthetics.com/",
+      "geo": "South Shore (Hanover)",
+      "siteTake": "Rebrand case study: neutrals + pink, mega-menu, conversion copy.",
+      "suggestion": "Study their mega-menu IA when you rebuild services navigation."
+    },
+    {
+      "name": "VIO Med Spa Burlington",
+      "url": "https://viomedspa.com/",
+      "geo": "Burlington mall corridor",
+      "siteTake": "Franchise template; promotions; standardized look.",
+      "suggestion": "Franchise sameness is your opportunity — look unmistakably Jenny."
+    },
+    {
+      "name": "The Klinic (ultrasound-capable peers)",
+      "url": "https://www.theklinic.com/",
+      "geo": "Woburn area peers",
+      "siteTake": "Advanced regenerative / facial ultrasound adjacent positioning in market chatter.",
+      "suggestion": "If peers claim ultrasound, Angel Face must show proof: process photos, FAQ, consult mapping CTA."
     }
   ],
   "comps": [
-    {
-      "id": "comp-01",
-      "file": "comps/comp-01-clinical-mist.jpg",
-      "name": "Clinical Mist",
-      "tagline": "Cool clinical calm with rose accent",
-      "palette": ["#eef1f5", "#1e3a4c", "#9b6b7a"],
-      "why": "Matches ultrasound/safety story without looking like a deal spa. Differentiates from Precision Nurse’s warmer precision brand.",
-      "vsMarket": "More clinical-cool than Seaport’s medical blue; quieter than laser clinics."
-    },
-    {
-      "id": "comp-02",
-      "file": "comps/comp-02-soft-blush-atelier.jpg",
-      "name": "Soft Blush Atelier",
-      "tagline": "Editorial beauty atelier",
-      "palette": ["#f6ecef", "#2a2226", "#b08a94"],
-      "why": "Owns feminine natural-beauty emotion from reviews (lips, first-timers, comfort).",
-      "vsMarket": "Closer to boutique Newton/Wellesley luxury than Stoneham nurse competitors."
-    },
-    {
-      "id": "comp-03",
-      "file": "comps/comp-03-regenerative-lab.jpg",
-      "name": "Regenerative Lab",
-      "tagline": "Ultrasound + regenerative tech edge",
-      "palette": ["#ffffff", "#2a6f6a", "#1a1f2e"],
-      "why": "Leads with the rare MA ultrasound differentiator and regenerative claim.",
-      "vsMarket": "Counters Cosmetic Laser Solutions device story with Jenny’s ultrasound-guided injectables."
-    },
-    {
-      "id": "comp-04",
-      "file": "comps/comp-04-founder-forward.jpg",
-      "name": "Founder Forward",
-      "tagline": "Jenny is the brand",
-      "palette": ["#f3efe8", "#1c1917", "#8b6f5c"],
-      "why": "Reviews repeatedly name Jenny. Trust is personal — mirror Precision Nurse’s founder-forward pattern, but for Jenny.",
-      "vsMarket": "Same category move as Precision Nurse / MD Beauty founder pages."
-    },
-    {
-      "id": "comp-05",
-      "file": "comps/comp-05-dark-luxe.jpg",
-      "name": "Dark Luxe Clinic",
-      "tagline": "Quiet luxury night spa",
-      "palette": ["#12151a", "#c4b49a", "#f2ece4"],
-      "why": "Premium pricing posture vs deal spas; feels exclusive without neon gimmicks.",
-      "vsMarket": "Darker than most Boston med spa sites — stands out in a pastel-heavy SERP."
-    },
-    {
-      "id": "comp-06",
-      "file": "comps/comp-06-gallery-white.jpg",
-      "name": "Gallery White",
-      "tagline": "Museum minimal",
-      "palette": ["#ffffff", "#111111", "#d0d0d0"],
-      "why": "Maximum brand signal, minimum clutter. OCD-friendly clarity for Jenny’s structured taste.",
-      "vsMarket": "Strips away the busy service grids common on competitor homepages."
-    },
-    {
-      "id": "comp-07",
-      "file": "comps/comp-07-booking-first.jpg",
-      "name": "Booking First",
-      "tagline": "Conversion-first utilitarianism",
-      "palette": ["#d9e4dc", "#111111", "#4a5d52"],
-      "why": "Direct response to soft season — calendar fill before brand poetry.",
-      "vsMarket": "Matches Precision Nurse Book Now urgency with regenerative consult CTA."
-    },
-    {
-      "id": "comp-08",
-      "file": "comps/comp-08-education-magazine.jpg",
-      "name": "Education Magazine",
-      "tagline": "Teach then book",
-      "palette": ["#f7f5f1", "#243447", "#6b7c8f"],
-      "why": "Leans into Jenny’s education/safety differentiator and comparison-spiral antidote (substance over hype).",
-      "vsMarket": "More editorial than Seaport’s recognition badges approach."
-    },
-    {
-      "id": "comp-09",
-      "file": "comps/comp-09-wellness-flagship.jpg",
-      "name": "Wellness Flagship",
-      "tagline": "Future holistic home",
-      "palette": ["#ebe6dc", "#5f7a6a", "#2c332e"],
-      "why": "Visualizes Phase 4 vision (facials/lasers/hyperbaric) without abandoning injectables now.",
-      "vsMarket": "Overlaps Boemy wellness hybrid territory — use only if rebrand gate allows umbrella story."
-    },
-    {
-      "id": "comp-10",
-      "file": "comps/comp-10-north-shore-neighbor.jpg",
-      "name": "North Shore Neighbor",
-      "tagline": "Stoneham local trust",
-      "palette": ["#e8eef3", "#1e2a36", "#6a8499"],
-      "why": "Stoneham-first demand engine from the marketing plan. Local, friendly, elevated.",
-      "vsMarket": "Speaks directly against Precision Nurse’s Stoneham presence with neighborhood warmth."
-    }
+    {"id":"comp-01","file":"comps/comp-01-clinical-mist.jpg","name":"Clinical Mist","tagline":"Cool clinical calm with rose accent","palette":["#eef1f5","#1e3a4c","#9b6b7a"],"why":"Ultrasound/safety story without deal-spa energy.","vsMarket":"Quieter clinical cool than Seaport / Icon MD noise."},
+    {"id":"comp-02","file":"comps/comp-02-soft-blush-atelier.jpg","name":"Soft Blush Atelier","tagline":"Editorial beauty atelier","palette":["#f6ecef","#2a2226","#b08a94"],"why":"Owns feminine natural-beauty emotion from lip/first-timer reviews.","vsMarket":"Closer to Newton boutique luxury than Stoneham nurse sites."},
+    {"id":"comp-03","file":"comps/comp-03-regenerative-lab.jpg","name":"Regenerative Lab","tagline":"Ultrasound + regenerative tech edge","palette":["#ffffff","#2a6f6a","#1a1f2e"],"why":"Leads with rare MA ultrasound differentiator.","vsMarket":"Counters Cosmetic Laser Solutions device story."},
+    {"id":"comp-04","file":"comps/comp-04-founder-forward.jpg","name":"Founder Forward","tagline":"Jenny is the brand","palette":["#f3efe8","#1c1917","#8b6f5c"],"why":"Reviews name Jenny — trust is personal.","vsMarket":"Same move as Precision Nurse / MD Beauty founder pages."},
+    {"id":"comp-05","file":"comps/comp-05-dark-luxe.jpg","name":"Dark Luxe Clinic","tagline":"Quiet luxury night spa","palette":["#12151a","#c4b49a","#f2ece4"],"why":"Premium pricing posture vs deal spas.","vsMarket":"Stands out in pastel-heavy SERP."},
+    {"id":"comp-06","file":"comps/comp-06-gallery-white.jpg","name":"Gallery White","tagline":"Museum minimal","palette":["#ffffff","#111111","#d0d0d0"],"why":"Maximum brand signal, minimum clutter.","vsMarket":"Strips busy service grids common on competitor homes."},
+    {"id":"comp-07","file":"comps/comp-07-booking-first.jpg","name":"Booking First","tagline":"Conversion-first utilitarianism","palette":["#d9e4dc","#111111","#4a5d52"],"why":"Soft-season response — fill calendar.","vsMarket":"Matches Precision Nurse Book Now urgency."},
+    {"id":"comp-08","file":"comps/comp-08-education-magazine.jpg","name":"Education Magazine","tagline":"Teach then book","palette":["#f7f5f1","#243447","#6b7c8f"],"why":"Education/safety differentiator as content brand.","vsMarket":"More substance than badge-heavy Seaport."},
+    {"id":"comp-09","file":"comps/comp-09-wellness-flagship.jpg","name":"Wellness Flagship","tagline":"Future holistic home","palette":["#ebe6dc","#5f7a6a","#2c332e"],"why":"Phase 4 vision without abandoning injectables now.","vsMarket":"Boemy-adjacent; gate before promising."},
+    {"id":"comp-10","file":"comps/comp-10-north-shore-neighbor.jpg","name":"North Shore Neighbor","tagline":"Stoneham local trust","palette":["#e8eef3","#1e2a36","#6a8499"],"why":"Stoneham-first demand engine.","vsMarket":"Direct answer to Precision Nurse local presence."},
+    {"id":"comp-11","file":"comps/comp-11-ultrasound-map.jpg","name":"Ultrasound Safety Map","tagline":"See before you inject","palette":["#0f1c2e","#5ec8d8","#d7eef3"],"why":"Productizes the ultrasound consult as visual hero.","vsMarket":"Few local sites show ultrasound process — ownership opportunity."},
+    {"id":"comp-12","file":"comps/comp-12-lip-studio.jpg","name":"Lip Studio","tagline":"Lips that still look like you","palette":["#f3d6c9","#2b2422","#c48b78"],"why":"Matches strongest review cluster (lips / first-timers).","vsMarket":"More focused than broad menus at Infinite Beauty / SkinMD."},
+    {"id":"comp-13","file":"comps/comp-13-first-timer.jpg","name":"First Timer Calm","tagline":"Nervous? We go slow","palette":["#e7efe8","#2f3b34","#8aa193"],"why":"Converts anxiety — a repeated review theme.","vsMarket":"Chains rarely feel this personal."},
+    {"id":"comp-14","file":"comps/comp-14-two-locations.jpg","name":"Two Locations","tagline":"Boston and Stoneham. Same Jenny","palette":["#1a1f26","#9fb4c7","#e8a0b0"],"why":"Clarifies dual-city without diluting brand.","vsMarket":"Cleaner dual-location story than sprawling SkinMD map."},
+    {"id":"comp-15","file":"comps/comp-15-review-wall.jpg","name":"Review Wall","tagline":"Patients keep saying Jenny","palette":["#241c1f","#e8a0b0","#f5e9ec"],"why":"Weaponizes existing social proof.","vsMarket":"More human than vendor Top% badges."},
+    {"id":"comp-16","file":"comps/comp-16-pdgf-regen.jpg","name":"PDGF Regen","tagline":"Regenerative before it was trendy","palette":["#f7fbf9","#1f5c52","#0e1a18"],"why":"Owns early-adopter regenerative narrative.","vsMarket":"Precision Nurse mentions PDGF — you can go deeper."},
+    {"id":"comp-17","file":"comps/comp-17-mobile-first.jpg","name":"Mobile First","tagline":"Designed for how patients book","palette":["#1c1520","#d9a5b3","#f3e6ea"],"why":"Most discovery is mobile; sticky book wins.","vsMarket":"Many local sites still desktop-awkward."},
+    {"id":"comp-18","file":"comps/comp-18-before-after.jpg","name":"Before After Discreet","tagline":"Natural shifts not filters","palette":["#121212","#cfc3b5","#8a7f72"],"why":"Results gallery without tacky clinic clichés.","vsMarket":"Elevates above heavy promo carousels."},
+    {"id":"comp-19","file":"comps/comp-19-skinbetter-retail.jpg","name":"Skinbetter Retail","tagline":"Injectables plus Skinbetter Science","palette":["#ebe4da","#1d1a17","#8c7b6a"],"why":"Monetizes retail already on the live site.","vsMarket":"Retail-clinic hybrid like Skin Laundry — lighter touch."},
+    {"id":"comp-20","file":"comps/comp-20-concierge-text.jpg","name":"Concierge Text","tagline":"Text Jenny. Real answers","palette":["#14241c","#f2ebe1","#c4a882"],"why":"Matches how patients already reach her.","vsMarket":"More intimate than franchise phone trees."},
+    {"id":"comp-21","file":"comps/comp-21-service-mega.jpg","name":"Service Mega","tagline":"Choose your path","palette":["#d9d6d0","#222222","#6e6a63"],"why":"IA borrowed from strong mega-menu rebuilds (ALDA pattern).","vsMarket":"Fixes vague service dumping on many nurse sites."},
+    {"id":"comp-22","file":"comps/comp-22-anti-deal.jpg","name":"Anti Deal Spa","tagline":"No race-to-bottom deals","palette":["#0b0b0b","#d4b483","#f4efe6"],"why":"Premium posture against LaserAway/VIO promo culture.","vsMarket":"Positions opposite franchise discount energy."},
+    {"id":"comp-23","file":"comps/comp-23-sculptra.jpg","name":"Sculptra Collagen","tagline":"Collagen that builds over time","palette":["#f4eee6","#3b2a22","#a08978"],"why":"Highlights NYC Sculptra training differentiator.","vsMarket":"Biostimulator story vs filler-only shops."},
+    {"id":"comp-24","file":"comps/comp-24-visit-ritual.jpg","name":"Visit Ritual","tagline":"Consult → map → treat → follow-up","palette":["#1a1b22","#c9b8a6","#9a90b0"],"why":"Operationalizes SOP into brand.","vsMarket":"Process clarity most competitors skip."},
+    {"id":"comp-25","file":"comps/comp-25-early-adopter.jpg","name":"Early Adopter Lab","tagline":"First in line for what’s next","palette":["#f8f7f4","#b87333","#1c1c1c"],"why":"Alo/Derma Clay waitlist without distraction.","vsMarket":"Innovation story without looking like a gadget clinic."},
+    {"id":"comp-26","file":"comps/comp-26-credentials.jpg","name":"Nurse Credentials","tagline":"Trained like a clinician","palette":["#0b2545","#ffffff","#64ffda"],"why":"Credentials page energy on the homepage.","vsMarket":"Matches MD Esthetics trust cues as RN-led."},
+    {"id":"comp-27","file":"comps/comp-27-stoneham-storefront.jpg","name":"Stoneham Storefront","tagline":"Your North Shore injector","palette":["#dfe7ee","#5a3d36","#1e2a36"],"why":"Local Main Street belonging.","vsMarket":"Hyperlocal vs Newbury Street prestige brands."},
+    {"id":"comp-28","file":"comps/comp-28-referral-flywheel.jpg","name":"Referral Flywheel","tagline":"Bring someone you trust","palette":["#141018","#e8a0b0","#64ffda"],"why":"Turns referral script into visual system.","vsMarket":"Growth loop competitors leave to chance."},
+    {"id":"comp-29","file":"comps/comp-29-quiet-serif.jpg","name":"Quiet Minimal Serif","tagline":"Less noise. Better faces","palette":["#eceff2","#111111","#9aa3ad"],"why":"Ultra-premium restraint.","vsMarket":"Opposite of franchise template clutter."},
+    {"id":"comp-30","file":"comps/comp-30-flagship-roadmap.jpg","name":"Flagship Roadmap","tagline":"Start with your face. Grow into wellness","palette":["#ebe6dc","#5f7a6a","#2c332e"],"why":"Honest future vision without overpromising spend.","vsMarket":"Wellness hybrids (Boemy/SkinMD) — sequenced."}
   ]
 }

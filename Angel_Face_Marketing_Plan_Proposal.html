@@ -221,10 +221,63 @@
             font-size: 0.9rem; color: var(--slate-dark);
         }
         .check-mini li::before { content: "☐"; position: absolute; left: 0; color: var(--brand-primary); }
+        .nav-group { margin: 1rem 0 0.35rem; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--client-accent); font-weight: 700; padding-left: 1.5rem; }
+        .progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+        .progress-bar { flex: 1; height: 10px; background: #0a192f; border-radius: 999px; overflow: hidden; border: 1px solid #233554; }
+        .progress-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--brand-primary), var(--client-accent)); }
+        .progress-n { font-size: 0.85rem; font-weight: 700; color: var(--slate-light); white-space: nowrap; }
+        .phase-block { margin-bottom: 1.5rem; }
+        .phase-head { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: baseline; justify-content: space-between; }
+        .phase-head h3 { margin: 0; font-size: 1.25rem; }
+        .phase-sum { color: var(--slate-dark); font-size: 0.95rem; margin: 0.5rem 0 0.75rem; }
+        .todo-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.65rem; }
+        .todo-item {
+            display: grid; grid-template-columns: 24px 1fr auto; gap: 0.75rem;
+            background: #0a192f; border: 1px solid #233554; border-radius: 10px; padding: 0.85rem 1rem;
+        }
+        .todo-item.urgent { border-color: rgba(232,160,176,0.55); }
+        .todo-item.done .what, .todo-item.done .how { text-decoration: line-through; opacity: 0.5; }
+        .todo-item input { margin-top: 0.2rem; accent-color: var(--brand-primary); width: 18px; height: 18px; }
+        .todo-item .what { color: var(--slate-light); font-weight: 600; }
+        .todo-item .how { color: var(--slate-dark); font-size: 0.85rem; margin-top: 0.25rem; }
+        .todo-item .when { color: var(--brand-primary); font-size: 0.75rem; font-weight: 700; white-space: nowrap; }
+        .mini-pill { display: inline-flex; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 999px; }
+        .mini-pill.urgent { background: rgba(232,160,176,0.2); color: var(--client-accent); }
+        .mini-pill.info { background: rgba(100,255,218,0.12); color: var(--brand-primary); }
+        .callout-dark { background: rgba(100,255,218,0.08); border: 1px solid #233554; border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 1rem; color: var(--slate-light); }
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; }
+        .metric { background: #0a192f; border: 1px solid #233554; border-radius: 10px; padding: 0.85rem 1rem; }
+        .metric label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-primary); font-weight: 700; }
+        .metric .hint, .hint { font-size: 0.8rem; color: var(--slate-dark); margin: 0.2rem 0 0.45rem; }
+        .metric input {
+            width: 100%; background: var(--bg-light); border: 1px solid #233554; color: var(--slate-light);
+            border-radius: 8px; padding: 0.55rem 0.7rem; font: inherit;
+        }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.85rem; }
+        .btn.ghost { background: transparent; color: var(--slate-light); border: 1px solid #233554; }
+        .btn.ghost:hover { border-color: var(--brand-primary); color: var(--brand-primary); transform: none; }
+        button.btn { cursor: pointer; border: none; font: inherit; }
+        .design-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+        .design-card { background: #0a192f; border: 1px solid #233554; border-radius: 12px; overflow: hidden; }
+        .design-card.on { border-color: var(--brand-primary); box-shadow: 0 0 0 1px var(--brand-primary); }
+        .design-card.killed { opacity: 0.45; filter: grayscale(0.4); }
+        .design-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; cursor: zoom-in; }
+        .design-card .dbody { padding: 0.85rem 1rem 1rem; }
+        .design-card .dname { color: var(--slate-light); font-weight: 700; }
+        .design-card .why { font-size: 0.85rem; color: var(--slate-dark); margin: 0.4rem 0 0.6rem; }
+        .short-order { color: var(--slate-light); padding-left: 1.25rem; }
+        .lightbox {
+            display: none; position: fixed; inset: 0; background: rgba(5,12,24,0.92);
+            z-index: 10000; align-items: center; justify-content: center; padding: 1.5rem;
+        }
+        .lightbox.on { display: flex; }
+        .lightbox img { max-width: min(1100px, 96vw); max-height: 90vh; border-radius: 12px; }
         @media (max-width: 960px) {
             #side-nav { display: none; }
             #main-content { margin-left: 0; width: 100%; padding: 2rem 1.25rem; }
             h1 { font-size: 1.75rem; }
+            .todo-item { grid-template-columns: 24px 1fr; }
+            .todo-item .when { grid-column: 2; }
         }
     </style>
 </head>
@@ -265,12 +318,13 @@
                     <svg class="t2-logo t2-logo--nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" role="img"><text x="0" y="30" fill="#ccd6f6" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="700">TRIPLE2</text><text x="0" y="42" fill="#64ffda" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.42em">DIGITAL</text></svg>
                 </a>
             </div>
-            <p class="text-sm mt-2 mb-1">Marketing Plan &amp; Roadmap</p>
+            <p class="text-sm mt-2 mb-1">Angel Face Platform</p>
             <div class="client-wordmark mb-6">
                 <div class="client-name">ANGEL FACE<br/>INJECTIONS</div>
                 <div class="client-tagline">Safety · Regenerative · Natural</div>
                 <div class="client-sub">Jenny Racioppi, RN · Stoneham priority</div>
             </div>
+            <div class="nav-group">Plan</div>
             <a href="#summary" class="nav-link">1. Executive Summary</a>
             <a href="#diagnosis" class="nav-link">2. Situation &amp; Diagnosis</a>
             <a href="#positioning" class="nav-link">3. Positioning</a>
@@ -280,11 +334,14 @@
             <a href="#flywheel" class="nav-link">7. Reactivation &amp; Referrals</a>
             <a href="#brand" class="nav-link">8. Brand Without Erasure</a>
             <a href="#ladder" class="nav-link">9. Offer Ladder</a>
-            <a href="#metrics" class="nav-link">10. Metrics &amp; Scorecard</a>
+            <a href="#metrics" class="nav-link">10. Metrics Overview</a>
             <a href="#timeline" class="nav-link">11. 90-Day Timeline</a>
             <a href="#gates" class="nav-link">12. Decision Gates</a>
-            <a href="#workbook" class="nav-link">13. Action Workbook</a>
-            <a href="#next-steps" class="nav-link">14. Next Steps</a>
+            <div class="nav-group">Work</div>
+            <a href="#action-checklist" class="nav-link">13. Action Checklist</a>
+            <a href="#live-scorecard" class="nav-link">14. Live Scorecard</a>
+            <a href="#design-shortlist" class="nav-link">15. Design Shortlist</a>
+            <a href="#next-steps" class="nav-link">16. Next Steps</a>
         </nav>
 
         <main id="main-content">
@@ -660,39 +717,34 @@ flowchart TD
                 </div>
             </section>
 
-            <section id="workbook">
-                <h2>13. Action Workbook (linked system)</h2>
-                <p>Interactive checklists (Europe-trip style: what / how / when + browser ticks) live beside this proposal.</p>
-                <div class="tier-cards">
-                    <div class="tier-card">
-                        <div class="tier-name">Plan</div>
-                        <div class="tier-price" style="font-size:1rem"><a class="brand-text" href="index.html">index.html</a></div>
-                        <p class="text-sm">Master checklist Phases 0–4</p>
-                    </div>
-                    <div class="tier-card">
-                        <div class="tier-name">Scorecard</div>
-                        <div class="tier-price" style="font-size:1rem"><a class="brand-text" href="scorecard.html">scorecard.html</a></div>
-                        <p class="text-sm">Weekly anti-spiral metrics</p>
-                    </div>
-                    <div class="tier-card">
-                        <div class="tier-name">Brand / Offers / Scale</div>
-                        <div class="tier-price" style="font-size:1rem"><a class="brand-text" href="brand.html">brand</a> · <a class="brand-text" href="offers.html">offers</a> · <a class="brand-text" href="scale.html">scale</a></div>
-                        <p class="text-sm">Phase deep-dives</p>
-                    </div>
-                    <div class="tier-card">
-                        <div class="tier-name">Printable</div>
-                        <div class="tier-price" style="font-size:1rem"><a class="brand-text" href="Jenny_Action_Workbook.md">Workbook.md</a></div>
-                        <p class="text-sm">Offline checkbox mirror</p>
-                    </div>
+            <section id="action-checklist">
+                <h2>13. Action Checklist</h2>
+                <p>Do these in order. Ticks save in this browser. Same what / how / when system as the workbook — now inside the dark platform.</p>
+                <div id="platform-checklist" class="card"></div>
+            </section>
+
+            <section id="live-scorecard">
+                <h2>14. Live Scorecard</h2>
+                <p>Weekly numbers only. Comparison spiral stays off this page.</p>
+                <div id="platform-scorecard" class="card"></div>
+            </section>
+
+            <section id="design-shortlist">
+                <h2>15. Design Shortlist (30 comps)</h2>
+                <p>Homepage directions researched against the live site and 26 competitors. Shortlist, maybe, or kill. Export when you have a top 3.</p>
+                <div class="highlight-box">
+                    <p class="mb-2" style="color:var(--slate-light)"><strong>Market suggestions (from competitor scan):</strong></p>
+                    <ul class="check-mini" id="suggestion-list" style="margin:0"></ul>
                 </div>
-                <p class="text-sm mt-4">Serve locally: <code style="color:var(--brand-primary)">python3 -m http.server 8765</code> → open this file and the workbook from the same origin.</p>
+                <div id="platform-designs"></div>
             </section>
 
             <section id="next-steps">
-                <h2>14. Next Steps</h2>
+                <h2>16. Next Steps</h2>
                 <ol class="step-list">
                     <li><strong style="color:var(--slate-light)">Today:</strong> Lock North Star, fill Baseline sheet, set scorecard calendar event.</li>
                     <li><strong style="color:var(--slate-light)">This week:</strong> Export dormant lists; message first 25 Stoneham patients; clean Stoneham GBP; hold consult/treatment blocks.</li>
+                    <li><strong style="color:var(--slate-light)">Design:</strong> Shortlist top 3 comps in section 15 and send ranks to Anthony.</li>
                     <li><strong style="color:var(--slate-light)">Days 1–14:</strong> Draft 12-post bank; install referral + review asks.</li>
                     <li><strong style="color:var(--slate-light)">Day 30:</strong> Utilization gate — pass/fail decides brand spend.</li>
                     <li><strong style="color:var(--slate-light)">Days 30–60:</strong> Publish service ladder + price posture; write hire gate numbers.</li>
@@ -700,13 +752,14 @@ flowchart TD
                 </ol>
                 <div class="highlight-box mt-8">
                     <p class="mb-2" style="color:var(--slate-light)"><strong>Prepared by Triple2 Digital</strong> for Angel Face Injections · Jenny Racioppi</p>
-                    <p class="mb-0 text-sm">Strategy method: g-stack (office-hours wedge + CEO hold-scope on premature spend). Confidential.</p>
-                    <p class="mt-4 mb-0"><a class="btn" href="index.html">Open Action Workbook</a></p>
+                    <p class="mb-0 text-sm">One password-protected dark platform: plan + checklist + scorecard + 30 designs + competitor analysis.</p>
+                    <p class="mt-4 mb-0"><a class="btn" href="#action-checklist">Jump to checklist</a> <a class="btn ghost" href="#design-shortlist" style="margin-left:0.5rem">Jump to designs</a></p>
                 </div>
             </section>
         </main>
     </div>
 
+    <script src="platform.js"></script>
     <script>
         mermaid.initialize({ startOnLoad: false, theme: 'dark', gantt: { axisFormat: '%b %d' } });
 
@@ -784,6 +837,13 @@ flowchart TD
             document.getElementById('main-wrapper').classList.remove('content-hidden');
             setTimeout(initializeMermaid, 100);
             setTimeout(initializeCharts, 150);
+            if (window.AngelFacePlatform) window.AngelFacePlatform.boot();
+            fetch('designs/comps.json').then(r => r.json()).then(d => {
+                const ul = document.getElementById('suggestion-list');
+                if (ul && d.meta && d.meta.suggestions) {
+                    ul.innerHTML = d.meta.suggestions.map(s => `<li style="list-style:none;padding-left:0;margin:0.35rem 0">→ ${s}</li>`).join('');
+                }
+            }).catch(() => {});
         }
 
         if (sessionStorage.getItem('af_authenticated') === 'true') {
